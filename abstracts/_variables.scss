@@ -39,10 +39,6 @@ $nav-link-mobile-active-bgnd: $color-foreground;
 $nav-hamburger: $color-foreground;
 $nav-hamburger-hover: $color-foreground;
 
-//Borders
-$color-border: $color-foreground; // Setting up the default border colour used in buttons, forms, etc. (as defined /modules/_forms.scss)
-
-
 //Buttons 
 $color-btn-bg: $color-foreground; // Setting up the default color for the colour of buttons (as defined in /modules/_btn.scss)
 $color-btn: $color-background;
@@ -53,6 +49,32 @@ $color-btn-bg-2: $color-foreground; // Setting up the default color for the colo
 $color-btn-2: $color-background;
 $color-btn-border-2: transparent; //by default, this is the same as the general border definition
 $color-btn-hover-2: $color-foreground;
+
+// Alert Colors
+
+$alert-yellow:      #ebe16f;
+$alert-red:         #fbe3e4;
+$alert-green:       #e6efc2;
+$alert-blue:        #d5edf8;
+
+//Borders
+$color-border: $color-foreground; // Setting up the default border colour used in buttons, forms, etc. (as defined /modules/_forms.scss)
+
+// Forms
+$label-width: 30%; // this will determine whether labels and fields are side by side
+$form-font: $font-default;
+
+
+$form-color: $color-foreground;
+$form-label-color: $form-color;
+$form-placeholder-color: rgba($color-foreground, 0.8);
+$form-color-background: $color-background;
+$form-color-border: $color-border;
+$form-color-border-focus: $color-border;
+$form-color-btn-bg: $color-btn-bg;
+$form-color-btn: $color-btn;
+$form-error-color: $alert-red;
+
 
 // Pagination
 $pagination-font: $color-foreground;
@@ -111,3 +133,19 @@ $shortscreen: (max-height 625px) (min-width 1025px);
 /// @example scss - When using a CDN
 ///	 $base-url: 'http://cdn.example.com/assets/';
 $base-url: '/assets/' !default;
+
+
+
+$ease: cubic-bezier(.03,.66,.11,1.01);
+
+$easeOutExpo   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$easeInExpo    : cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$easeInOutExpo : cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
+/*
+Inital Setup Variables
+
+ */
+
+$mobile-padding: 1rem; //the initial padding for the website in mobile
+$internal-padding: $mobile-padding;

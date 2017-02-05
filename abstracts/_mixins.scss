@@ -32,3 +32,32 @@
 	}
 }
 
+
+/// styling out whether the labels and inputs are stacked or side by side
+@mixin label-style{
+	@if $label-width == 100% {
+		display: block;
+		text-align: left;
+	} @else {
+		@include breakpoint($bkpt-1024){
+			width: $label-width;
+			float: left;
+			text-align: right;
+			height:2.5em;
+			padding:0.25em 0.35em 0.25em 0;
+			line-height:2em;
+			margin:0;
+		}
+	}
+
+}
+@mixin form-field-editor-style{ // the input field
+	@if $label-width == 100% {
+		display: block;
+	} @else {
+		@include breakpoint($bkpt-1024){
+			width: 100% - $label-width;
+			float: left;
+		}
+	}
+}
