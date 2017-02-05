@@ -1,0 +1,129 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the navigation of the site/application.
+// -----------------------------------------------------------------------------
+
+#header{
+	nav{
+		@include de-ul;
+		> ul{
+			> li{
+				> a, > a:visited{
+					color: $nav-link;
+					display: block;
+
+					background: transparent;
+					line-height: 1.1;
+					&:hover{
+					}
+				}
+				&.current-menu-item > a{
+					background-color: $nav-link-hover;
+				}
+				&.current-menu-item, &.current-menu-ancestor{
+					a, a:visited{
+					}
+				}
+				&.current-menu-item.menu-item-has-children, &.current-menu-ancestor{
+					.sub-menu{
+						display: block;
+					}
+				}
+			}
+		}
+		/// Mobile Navigation
+		@include breakpoint($bkpt-sub-1024){
+			> ul{
+				z-index: 104;
+				position: absolute;
+				top: 3rem;
+				left: 0em;
+				right: 0em;
+				width: 100%;
+				margin-bottom: 0;
+				display: block;
+				height:0;
+				overflow: hidden;
+				-webkit-transition: max-height 1s;
+				-moz-transition: max-height 1s;
+				-ms-transition: max-height 1s;
+				-o-transition: max-height 1s;
+				transition: max-height 1s;
+
+				transition-delay: 0s;
+				display: flex;
+				flex-direction: column;
+				box-sizing: border-box;
+				// transition: left 1s $ease;
+				li{
+					display: block;
+					// @include transition(transform 0.5s 0s $ease);
+				 	//transform: translate3d(-500px, 0,0);
+
+					// $num: 0;
+					// $delay-init: 0;
+					// $delay-increment: 0.125;
+
+					// @while $num < 10 {
+					//     &:nth-of-type(#{$num}) {
+					//         transition-delay: #{$delay-init}s;
+					//     }
+					// 	$delay-init: $delay-init + $delay-increment;
+					//     $num: $num + 1;
+					// }
+					a{
+						color: $nav-link-mobile;
+						background-color:  $nav-link-mobile-bgnd;
+						padding: 20px 0 20px 15px;
+					}
+				}
+				&.activated{
+					// transition: left 1s $ease;
+					
+					height: calc(100vh - 3rem);
+					li{
+						a, a:visited{
+						}
+					}
+				}
+			}
+		}
+		// Non Mobile navigation
+		@include breakpoint($bkpt-1024){
+			> ul{			
+				background: transparent;
+				position: relative;
+				top: auto;
+				left: auto;
+				margin: 0;
+				padding: 0;
+				height: auto;
+				max-height: none;
+				width: auto;
+				li{
+					
+				}
+			}
+		}
+	}
+
+	.navHamburger{
+		font-size: 2em;
+		line-height: 1.5em;
+		position: absolute;
+		z-index:100;
+		left: auto;
+		right: 0.5em;
+		top: 0;
+		display: block;
+		cursor: pointer;
+		box-sizing: padding-box;
+		background-clip: border-box;
+		color: $nav-hamburger;
+		&:hover{
+			color: $nav-hamburger;
+		}
+		@include breakpoint($bkpt-1024){
+			display: none;
+		}
+	}
+}
