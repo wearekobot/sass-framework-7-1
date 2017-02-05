@@ -5,41 +5,62 @@
 
 
 
-
-/// Regular font family
-/// @type List
-$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
-
-/// Code (monospace) font family
-/// @type List
-$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
-
+/// Typography Variables
+$font-size-mobile: 16px;
+$font-size: 18px;
+$font-size-large: 21px;
+$line-height: 1.4;
+$font-default: "proxima-nova", Helvetica, Arial, sans-serif;
+$font-default-second:  "proxima-nova-condensed", Helvetica, Arial, sans-serif;
 
 
+/// Colours
+
+$color-black: #000000;
+$color-white: #ffffff;
+
+$color-foreground: $color-black;
+$color-background: $color-white;
 
 
-/// Copy text color
-/// @type Color
-$text-color: rgb(34, 34, 34) !default;
+$color-highlight-foregound: $color-background;
+$color-highlight-backgound: $color-foreground;
 
-/// Main brand color
-/// @type Color
-$brand-color: rgb(229, 0, 80) !default;
+$link-color:        inherit;
+$link-hover:        lighten($color-foreground, 9%);
 
-/// Light grey
-/// @type Color
-$light-grey: rgb(237, 237, 237) !default;
+// Nav Base Colors
+$nav-link: $color-foreground;
+$nav-link-hover: $color-foreground;
+$nav-link-active: $color-foreground;
+$nav-link-mobile: $color-foreground;
+$nav-link-mobile-bgnd: rgba($color-foreground, 0.9);
+$nav-link-mobile-active-bgnd: $color-foreground;
+$nav-hamburger: $color-foreground;
+$nav-hamburger-hover: $color-foreground;
 
-/// Medium grey
-/// @type Color
-$mid-grey: rgb(153, 153, 153) !default;
-
-/// Dark grey
-/// @type Color
-$dark-grey: rgb(68, 68, 68) !default;
-
+//Borders
+$color-border: $color-foreground; // Setting up the default border colour used in buttons, forms, etc. (as defined /modules/_forms.scss)
 
 
+//Buttons 
+$color-btn-bg: $color-foreground; // Setting up the default color for the colour of buttons (as defined in /modules/_btn.scss)
+$color-btn: $color-background;
+$color-btn-border: transparent; //by default, this is the same as the general border definition
+$color-btn-hover: $color-foreground;
+
+$color-btn-bg-2: $color-foreground; // Setting up the default color for the colour of buttons (as defined in /modules/_btn.scss)
+$color-btn-2: $color-background;
+$color-btn-border-2: transparent; //by default, this is the same as the general border definition
+$color-btn-hover-2: $color-foreground;
+
+// Pagination
+$pagination-font: $color-foreground;
+$pagination-font-hover: $color-background;
+$pagination-border: $color-foreground;
+$pagination-border-hover: $color-background;
+$pagination-current-font: $color-foreground;
+$pagination-current-border: $color-background;
 
 
 /// Container's maximum width
