@@ -1,3 +1,19 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+
+#header {
+	h1{
+		// @include image-replacement("logo_mobile", "png");
+		position: relative;
+		a{
+			@include position(absolute, 0 0 0 0);
+			overflow: hidden;
+		}
+	}
+	@include breakpoint($bkpt-1024){
+		h1{
+			// @include image-replacement("logo", "png");
+		}
+	}
+}
