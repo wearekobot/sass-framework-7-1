@@ -1,6 +1,212 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
+// Do not edit. Put all site-specific mixins in site-mixins
 // -----------------------------------------------------------------------------
+
+/// Image Replacement
+
+@import "compass/css3/background-size";
+
+@mixin bgnd-retina($file, $type) {
+  $image: ($file + '.' + $type);
+  background-image: image-url($image);
+ 
+  @media only screen and (-webkit-min-device-pixel-ratio: 2)
+  {
+    $image2x: ($file + '@2x.' + $type);
+    background-image: image-url($image2x);
+    @include background-size(image-width($image) auto);
+  }
+}
+
+@mixin background-image-retina($file, $type) {
+  $image: ($file + '.' + $type);
+  background-image: image-url($image);
+  height: image-height($image);
+  width: image-width($image);
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2)
+  {
+    $image2x: ($file + '@2x.' + $type);
+    background-image: image-url($image2x);
+    @include background-size(image-width($image) auto);
+  }
+}
+
+@mixin image-replacement($file, $type) {
+  @include background-image-retina($file, $type);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
+@mixin header-replacement($file, $type) {
+  $image: ($file + '.' + $type);
+  background-image: image-url($image);
+  height: image-height($image)/2;
+  width: image-width($image)/2;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2)
+  {
+    $image2x: ($file + '@2x.' + $type);
+    background-image: image-url($image2x);
+    // @include background-size(image-width($image)/2 auto);
+  }
+}
+
+
+/// Full Screen Background with ios fix
+@mixin fullscreenbackground($image){
+  $background-file-name: $image;
+  background-image: image-url($background-file-name);
+  background-repeat: no-repeat;
+  background-position: center center;
+  @include breakpoint($bkpt-1024){
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  /* for background-size:cover replacement on iOS devices */
+  @media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
+    -webkit-background-size: auto 150%;
+    background-attachment: scroll;
+    background-position: top center;
+  }
+  @media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
+    -webkit-background-size: 150% auto;
+    background-attachment: scroll;
+    background-position: top center;
+  }
+}
+
+/// vertically centers element in its parent (needs position and height declaration)
+@mixin vertical-align {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  @include breakpoint($bkpt-768){
+    position: relative;
+  }
+}
+@mixin vertical-align-parent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/// Section Height
+%fullheight{
+  min-height: 100vh;
+  @include vertical-align-parent;
+  @include breakpoint($bkpt-768){
+    // height: 100vh;
+    min-height: 0;
+    // min-height: 100vh;
+    height:  calc(100vh);
+  }
+}
+%peakheight{
+  min-height: 80vh;
+  @include breakpoint($bkpt-768){
+    height: 90vh;
+    min-height: 0;
+  }
+}
+
+
+%halfheight{
+  min-height: 50vh;
+  @include vertical-align-parent;
+  @include breakpoint($bkpt-768){
+    min-height: 50vh;
+    box-sizing: border-box;
+    // min-height: 0;
+  }
+}
+
+%leader-sm-height{
+  // min-height: 25vh;
+  min-height: 350px;
+  @include breakpoint($bkpt-768){
+    // height: 25vh;
+    box-sizing: border-box;
+    // min-height: 0;
+    height: 350px
+  }
+  @include breakpoint($bkpt-1600){
+    height: 40vh;
+    // min-height: 35vh;
+  }
+}
+%leader-smr-height{
+  // min-height: 25vh;
+  min-height: 150px;
+  @include breakpoint($bkpt-768){
+    // height: 25vh;
+    box-sizing: border-box;
+    // min-height: 0;
+    height: 150px
+  }
+}
+
+%unheight{
+  min-height: auto;
+  @include breakpoint($bkpt-768){
+    height: auto;
+    min-height: auto;
+  }
+}
+
+/// Formating Utilities
+
+@mixin beforeafter{
+  content:"";
+  display: block;
+}
+
+
+@mixin de-ul {
+  ul{
+    margin: 0 0 1em 0;
+    padding: 0;
+    list-style-type: none;
+    li{
+      display: block;
+    }    
+  }
+
+}
+@mixin reset-ul {
+  display: block; 
+  list-style-type: disc; 
+  margin: 1em 0; 
+  padding-left: 40px;
+  li{
+    display: list-item;
+  }
+}
+@mixin reset-ol {
+  display: block; 
+  list-style-type: decimal; 
+  margin: 1em 0; 
+  padding-left: 40px;
+  li{
+    display: list-item;
+  }
+}
+
 
 /// Event wrapper
 /// @author Harry Roberts
