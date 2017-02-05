@@ -49,18 +49,39 @@ $max-width: 1180px !default;
 
 
 
+// media query breakpoints
+$bkpt-smartphone: 320px 480px;
+$bkpt-iphone:320x;
+$bkpt-440:440px;
+$bkpt-480:480px;
+$bkpt-iphone-landscape:480px 480px;
+$bkpt-iphone-retina:'width' 320px, 'device-pixel-ratio' 2;
+$bkpt-iphone-5:'width' 320px, 'device-pixel-ratio' 2;
+$bkpt-ipad:768px 1024px;
+$bkpt-sub-768:767px max-width;
+$bkpt-sub-1024:1024px max-width;
+$bkpt-768: min-width 768px, no-query true;
+$bkpt-ipad-portrait:768px;
+$bkpt-ipad-landscape:1024px 1024px;
+$bkpt-1024: min-width 1025px, no-query true; //just bigger than the ipad
+$bkpt-1280: min-width 1280px;
+$bkpt-1600: min-width 1600px, no-query true;
+$bkpt-max-1600: max-width 1600px;
+$bkpt-1920: min-width 1920px, no-query true;
+$bkpt-min-1920: min-width 1920px;
 
-/// Breakpoints map
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
-$breakpoints: (
-  'small': 320px,
-  'medium': 768px,
-  'large': 1024px,
-) !default;
+// height breakpoints
+$bkpt-h-480:480px min-height;
+$bkpt-h-600:600px min-height;
+$bkpt-h-640:640px min-height;
+$bkpt-h-768:768px min-height;
+$bkpt-h-900:900px min-height;
+$bkpt-h-1024:1024px min-height;
+$bkpt-h-1280:1280px min-height;
+$bkpt-h-1600:1600px min-height;
 
-
-
+// teeny short screen
+$shortscreen: (max-height 625px) (min-width 1025px);
 
 
 

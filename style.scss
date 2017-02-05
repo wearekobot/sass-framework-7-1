@@ -8,7 +8,9 @@
 
 // 2. Vendors
 @import
-  'vendor/normalize';
+  'vendor/normalize',
+  'breakpoint',
+  'bourbon';
 
 // 3. Base stuff
 @import
