@@ -31,3 +31,11 @@ a {
 		text-decoration: underline;
 	}
 }
+
+/**
+ * Basic styles for selected text
+ */
+::selection {
+	background: $color-highlight-backgound;
+	color: $color-highlight-foregound;
+}
