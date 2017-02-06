@@ -1,0 +1,20 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to general block components.
+// -----------------------------------------------------------------------------
+
+#intro-block{
+	min-height: 100px;
+	position: relative;
+	.wrap{
+		position: relative;
+		z-index: 1;
+	}
+	&.leader{
+		@extend %fullheight;
+		.wrap{
+		}
+	}
+	&.leader-sm{
+		@extend %halfheight;
+	}
+}
