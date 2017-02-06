@@ -15,14 +15,16 @@
 	&:hover{
 		background: $color-btn-hover;
 		color: $color-btn;
+		text-decoration: none;
 	}
 }
-.btn_second, .btn_second:visited{
+.btn_2, .btn_2:visited{
 	@extend .btn;
 	color: $color-btn-2;
 	background: $color-btn-bg-2;
 	&:hover{
 		background: $color-btn-hover-2;
 		color: $color-btn-2;
+		text-decoration: none;
 	}
 }
