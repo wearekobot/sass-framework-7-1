@@ -32,10 +32,12 @@
 // 5. Components
 @import
 	'components/button',
-	'components/forms';
+	'components/forms',
+	'components/blocks';
 
 // 6. Page-specific styles
 @import
+	'pages/page',
 	'pages/home';
 
 // 7. Themes
