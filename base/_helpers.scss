@@ -17,15 +17,26 @@
  * 2. Center it in the viewport
  * 3. Leave some space on the edges, especially valuable on small screens
  */
-.container, .wrap {
-	max-width: $max-width; /* 1 */
+
+.wrap{
+	padding: 0 $mobile-padding;
+	max-width: calc(100% - #{$mobile-padding*2} );
+	width: 100%; /* 1 */
 	margin-left: auto; /* 2 */
 	margin-right: auto; /* 2 */
-	padding-left: 20px; /* 3 */
-	padding-right: 20px; /* 3 */
-	width: 100%; /* 1 */
- }
-
+	@include breakpoint($bkpt-1024){
+		max-width: $wrap-width; /* 1 */
+		padding: 0 $internal-padding;
+		// @include with-grid-settings($break,$column-width,$gutter-width,$mobile-padding) {
+		  // @include container($susy); 
+		// }
+		// @include susy-grid-background; //This will show a grid if you unquote it
+	}
+	@include breakpoint($bkpt-1600){
+		max-width: $wrap-width_large; /* 1 */
+	}
+	
+}
 /**
  * Hide text while making it readable for screen readers
  * 1. Needed in WebKit-based browsers because of an implementation bug;
@@ -52,4 +63,27 @@
 	padding: 0;
 	position: absolute;
 	width: 1px;
+}
+
+
+/**
+ * Prevent scrolling on an element
+ * Very usefull for preventing scroll on body when a mobile nav is activated
+ */
+
+.stuck {
+	overflow: hidden;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+}
+
+.hidden{
+	display: none !important;
+}
+.show{
+	display: block !important;
+}
+.invisible{
+	visibility: hidden;
 }
