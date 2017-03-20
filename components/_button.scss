@@ -12,19 +12,22 @@
 	text-transform: uppercase;
 	font-size:0.8em;
 	text-shadow: none;
+	transition: background-color 0.25s $ease, color, 0.5s $ease;
+	text-decoration: none !important;
 	&:hover{
 		background: $color-btn-hover;
 		color: $color-btn;
-		text-decoration: none;
+		text-decoration: none !important;
 	}
 }
 .btn_2, .btn_2:visited{
 	@extend .btn;
 	color: $color-btn-2;
 	background: $color-btn-bg-2;
+	text-decoration: none !important;
 	&:hover{
 		background: $color-btn-hover-2;
 		color: $color-btn-2;
-		text-decoration: none;
+		text-decoration: none !important;
 	}
 }
