@@ -1,0 +1,101 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+.grid, .form-group{
+	@include breakpoint($bkpt-768){
+		display: flex;
+		flex-wrap: wrap;
+		box-sizing: border-box;
+	}
+}
+@mixin spano($column) {
+	$grid-size: floor(($column/$columns) * 100) + 0%; 
+	width: calc(#{$grid-size} - #{$internal-padding * ($columns / $column - 1) / ($columns / $column)});
+	margin-right: #{$internal-padding};
+	&:nth-of-type(#{$columns/$column}n+#{$columns/$column}){
+		margin-right: 0;
+	}
+}
+@mixin pusho($column) {
+	$grid-size: floor(($column/$columns) * 100) + 0%; 
+	margin-left: calc(#{$grid-size} - #{$internal-padding * ($columns / $column - 1) / ($columns / $column)} + #{$internal-padding});
+}
+@mixin spano-bust{
+	@for $i from 1 through $columns {
+	  &:nth-of-type(#{$columns/$i}n+#{$columns/$i}) {
+	    margin-right: #{$internal-padding};
+	  } 
+	}
+}
+// You shouldn't have to edit anything below here
+
+.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve{
+	margin-bottom: 1em;
+	@include breakpoint($bkpt-768){
+		// margin-bottom: 0;
+	}
+}
+
+@include breakpoint($bkpt-768){
+	.one{
+
+		@include spano(1);
+	}
+	.two{
+
+		@include spano(2);
+	}
+	.three, .col-sm-3{
+		@include spano(3);
+	}
+	.four{
+		@include spano(4);
+	}
+	.five{
+		@include spano(5);
+	}
+	.six{
+		@include spano(6);
+	}
+	.seven{
+		@include spano(7);
+	}
+	.eight{
+		@include spano(8);
+	}
+	.nine, , .col-sm-9{
+		@include spano(9);
+	}
+	.ten{
+		@include spano(10);
+	}
+	.eleven{
+		@include spano(11);
+	}
+	.twelve{
+		width: 100%;
+	}
+	.pushOne{
+		@include pusho(1);
+	}
+	.pushTwo{
+		@include pusho(2);
+	}
+	.pushThree{
+		@include pusho(3);
+	}
+	.pushFour{
+		@include pusho(4);
+	}
+	.pushFive{
+		@include pusho(4);
+	}
+	.pushSix{
+		@include pusho(4);
+	}
+
+	.last, .omega{
+		margin-right: 0;
+	}
+}
