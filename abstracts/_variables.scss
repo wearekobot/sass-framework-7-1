@@ -10,16 +10,22 @@ $font-size-mobile: 16px;
 $font-size: 18px;
 $font-size-large: 21px;
 $line-height: 1.4;
-$font-default: "proxima-nova", Helvetica, Arial, sans-serif;
-$font-default-second:  "proxima-nova-condensed", Helvetica, Arial, sans-serif;
+$font-default: Helvetica, Arial, sans-serif;
+$font-default-second:  Helvetica, Arial Narrow, Tahoma, Geneva, Helvetica, Arial, sans-serif;
 
 
 /// Colours
 
-$color-black: #000000;
 $color-white: #ffffff;
+$color-black: #000000;
+$color-grey: #666;
+$color-grey-dk: darken($color-grey, 10);
+$color-grey-lt: lighten($color-grey, 5);
+$color-grey-ltr: lighten($color-grey, 10);
 
-$color-foreground: $color-black;
+
+
+$color-foreground: $color-grey-dk;
 $color-background: $color-white;
 
 
@@ -30,30 +36,27 @@ $link-color:        inherit;
 $link-hover:        lighten($color-foreground, 9%);
 
 // Nav Base Colors
-$nav-link: $color-foreground;
-$nav-link-hover: $color-foreground;
-$nav-link-active: $color-foreground;
-$nav-link-mobile: $color-foreground;
-$nav-link-mobile-bgnd: rgba($color-foreground, 0.9);
-$nav-link-mobile-active-bgnd: $color-foreground;
-$nav-hamburger: $color-foreground;
-$nav-hamburger-hover: $color-foreground;
+$nav-link: $color-grey;
+$nav-link-hover: $color-grey;
+$nav-link-active: $color-grey;
+$nav-link-mobile: $color-white;
+$nav-link-mobile-bgnd: $color-grey-dk;
+$nav-link-mobile-active-bgnd: $color-grey-lt;
+$nav-hamburger: $color-black;
+$nav-hamburger-hover: $color-black;
 
 //Buttons 
 $color-btn-bg: $color-foreground; // Setting up the default color for the colour of buttons (as defined in /modules/_btn.scss)
 $color-btn: $color-background;
 $color-btn-border: transparent; //by default, this is the same as the general border definition
-$color-btn-hover: $color-foreground;
+$color-btn-hover: $color-background;
+$color-btn-hover-bg: $color-grey-dk;
 
-$color-btn-bg-2: $color-foreground; // Setting up the default color for the colour of buttons (as defined in /modules/_btn.scss)
-$color-btn-2: $color-background;
-$color-btn-border-2: transparent; //by default, this is the same as the general border definition
-$color-btn-hover-2: $color-foreground;
 
 // Alert Colors
 
 $alert-yellow:      #ebe16f;
-$alert-red:         #fbe3e4;
+$alert-red:         #D0011B;
 $alert-green:       #e6efc2;
 $alert-blue:        #d5edf8;
 
@@ -61,16 +64,16 @@ $alert-blue:        #d5edf8;
 $color-border: $color-foreground; // Setting up the default border colour used in buttons, forms, etc. (as defined /modules/_forms.scss)
 
 // Forms
-$label-width: 30%; // this will determine whether labels and fields are side by side
+$label-width: 100%; // this will determine whether labels and fields are side by side
 $form-font: $font-default;
 
 
-$form-color: $color-foreground;
-$form-label-color: $form-color;
-$form-placeholder-color: rgba($color-foreground, 0.8);
+$form-color: $color-black;
+$form-label-color: $color-grey;
+$form-placeholder-color: $color-grey-ltr;
 $form-color-background: $color-background;
-$form-color-border: $color-border;
-$form-color-border-focus: $color-border;
+$form-color-border: $color-grey;
+$form-color-border-focus: $color-grey-dk;
 $form-color-btn-bg: $color-btn-bg;
 $form-color-btn: $color-btn;
 $form-error-color: $alert-red;
@@ -87,10 +90,12 @@ $pagination-current-border: $color-background;
 
 /// Container's maximum width
 /// @type Length
-$max-width: 1180px !default;
+$wrap-width: 960px !default;
+$wrap-width_large: 1280px;
 
 
-
+/// Grid variables
+$columns: 12;
 
 // media query breakpoints
 $bkpt-smartphone: 320px 480px;
@@ -108,6 +113,7 @@ $bkpt-ipad-portrait:768px;
 $bkpt-ipad-landscape:1024px 1024px;
 $bkpt-1024: min-width 1025px, no-query true; //just bigger than the ipad
 $bkpt-1280: min-width 1280px;
+$bkpt-1440: min-width 1440px;
 $bkpt-1600: min-width 1600px, no-query true;
 $bkpt-max-1600: max-width 1600px;
 $bkpt-1920: min-width 1920px, no-query true;
@@ -128,13 +134,6 @@ $shortscreen: (max-height 625px) (min-width 1025px);
 
 
 
-/// Relative or absolute URL where all assets are served from
-/// @type String
-/// @example scss - When using a CDN
-///	 $base-url: 'http://cdn.example.com/assets/';
-$base-url: '/assets/' !default;
-
-
 
 $ease: cubic-bezier(.03,.66,.11,1.01);
 
@@ -142,10 +141,14 @@ $easeOutExpo   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
 $easeInExpo    : cubic-bezier(0.950, 0.050, 0.795, 0.035);
 $easeInOutExpo : cubic-bezier(1.000, 0.000, 0.000, 1.000);
 
+
+
 /*
 Inital Setup Variables
 
  */
 
 $mobile-padding: 1rem; //the initial padding for the website in mobile
-$internal-padding: $mobile-padding;
+$internal-padding: $mobile-padding*2;
+
+
