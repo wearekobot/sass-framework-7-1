@@ -169,6 +169,34 @@
   }
 }
 
+/// vertically align cards
+@mixin vert-align{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+// responsive background-images
+
+@mixin leader-bgi($filename){
+  background-image: url(../images/#{$filename}_mobile.jpg);
+  @include breakpoint($bkpt-768){
+    background-image: url(../images/#{$filename}_sm.jpg);
+  }
+  @include breakpoint($bkpt-1024){
+    background-image: url(../images/#{$filename}_med.jpg);
+    &:before, &:after{    
+      background-size: contain;
+    }
+  }
+  @include breakpoint($bkpt-1600){
+    background-image: url(../images/#{$filename}.jpg);
+  }
+  @include breakpoint($bkpt-1920){
+    background-image: url(../images/#{$filename}_lg.jpg);
+  }
+}
+
 /// Formating Utilities
 
 @mixin beforeafter{
