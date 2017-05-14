@@ -52,6 +52,12 @@ $color-btn-border: transparent; //by default, this is the same as the general bo
 $color-btn-hover: $color-background;
 $color-btn-hover-bg: $color-grey-dk;
 
+$color-btn-bg-2: $color-foreground; // Setting up the default color for the colour of buttons (as defined in /modules/_btn.scss)
+$color-btn-2: $color-background;
+$color-btn-border-2: transparent; //by default, this is the same as the general border definition
+$color-btn-hover-2: $color-background;
+$color-btn-hover-bg-2: $color-grey-dk;
+
 
 // Alert Colors
 
