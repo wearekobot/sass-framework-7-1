@@ -3,6 +3,23 @@
 // Do not edit. Put all site-specific mixins in site-mixins
 // -----------------------------------------------------------------------------
 
+
+//wrapper
+@mixin wrapper{
+  padding: 0 $mobile-padding;
+  max-width: calc(100% - #{$mobile-padding*2} );
+  width: 100%; /* 1 */
+  margin-left: auto; /* 2 */
+  margin-right: auto; /* 2 */
+  @include breakpoint($bkpt-1024){
+    max-width: $wrap-width; /* 1 */
+    padding: 0;
+  }
+  @include breakpoint($bkpt-1600){
+    max-width: $wrap-width_large; /* 1 */
+  }
+}
+
 /// Image Replacement
 
 @import "compass/css3/background-size";
@@ -37,7 +54,7 @@
   @include background-image-retina($file, $type);
   background-position: 0 0;
   background-repeat: no-repeat;
-  text-indent: 100%;
+  text-indent: 1000%;
   white-space: nowrap;
   overflow: hidden;
   display: block;
@@ -106,11 +123,16 @@
   align-items: center;
 }
 
+
 /// Section Height
 %fullheight{
   min-height: 100vh;
   @include vertical-align-parent;
-  @include breakpoint($bkpt-768){
+  @include breakpoint($bkpt-ipad){
+    height:  calc(100vh - 60px);
+    min-height: 0;
+  }
+  @include breakpoint($bkpt-1024){
     // height: 100vh;
     min-height: 0;
     // min-height: 100vh;
@@ -118,19 +140,32 @@
   }
 }
 %peakheight{
-  min-height: 80vh;
+  min-height: 70vh;
+  @include vertical-align-parent;
   @include breakpoint($bkpt-768){
-    height: 90vh;
-    min-height: 0;
+    min-height: 70vh;
+    box-sizing: border-box;
+    // min-height: 0;
+    // height: 70vh;
+    height: auto;
   }
 }
-
+%blogheight{
+  min-height: 50vh;
+  @include vertical-align-parent;
+  @include breakpoint($bkpt-768){
+    min-height: 85vh;
+    box-sizing: border-box;
+    // min-height: 0;
+    height: auto;
+  }
+}
 
 %halfheight{
   min-height: 50vh;
   @include vertical-align-parent;
-  @include breakpoint($bkpt-768){
-    min-height: 50vh;
+  @include breakpoint($bkpt-1280){
+    min-height: 40vh;
     box-sizing: border-box;
     // min-height: 0;
   }
@@ -169,6 +204,7 @@
   }
 }
 
+
 /// vertically align cards
 @mixin vert-align{
   display: flex;
@@ -206,15 +242,12 @@
 
 
 @mixin de-ul {
-  ul{
-    margin: 0 0 1em 0;
-    padding: 0;
-    list-style-type: none;
-    li{
-      display: block;
-    }    
-  }
-
+  margin: 0 0 1em 0;
+  padding: 0;
+  list-style-type: none;
+  li{
+    display: block;
+  }    
 }
 @mixin reset-ul {
   display: block; 
@@ -241,57 +274,64 @@
 /// @param {Bool} $self [false] - Whether or not to include current selector
 /// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
 @mixin on-event($self: false) {
-	@if $self {
-		&,
-		&:hover,
-		&:active,
-		&:focus {
-			@content;
-		}
-	} @else {
-		&:hover,
-		&:active,
-		&:focus {
-			@content;
-		}
-	}
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
 }
 
 /// Make a context based selector a little more friendly
 /// @author Hugo Giraudel
 /// @param {String} $context
 @mixin when-inside($context) {
-	#{$context} & {
-		@content;
-	}
+  #{$context} & {
+    @content;
+  }
 }
 
 
 /// styling out whether the labels and inputs are stacked or side by side
 @mixin label-style{
-	@if $label-width == 100% {
-		display: block;
-		text-align: left;
-	} @else {
-		@include breakpoint($bkpt-1024){
-			width: $label-width;
-			float: left;
-			text-align: right;
-			height:2.5em;
-			padding:0.25em 0.35em 0.25em 0;
-			line-height:2em;
-			margin:0;
-		}
-	}
+  @if $label-width == 100% {
+    display: block;
+    text-align: left;
+  } @else {
+    @include breakpoint($bkpt-1024){
+      width: $label-width;
+      float: left;
+      text-align: right;
+      height:2.5em;
+      padding:0.25em 0.35em 0.25em 0;
+      line-height:2em;
+      margin:0;
+    }
+  }
 
 }
 @mixin form-field-editor-style{ // the input field
-	@if $label-width == 100% {
-		display: block;
-	} @else {
-		@include breakpoint($bkpt-1024){
-			width: 100% - $label-width;
-			float: left;
-		}
-	}
+  @if $label-width == 100% {
+    display: block;
+  } @else {
+    @include breakpoint($bkpt-1024){
+      width: 100% - $label-width;
+      float: left;
+    }
+  }
+}
+
+@mixin icon-social($image, $type){
+  a {
+    @include image-replacement($image, $type);
+    display: inline-block;
+  }
 }

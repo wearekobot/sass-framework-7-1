@@ -18,24 +18,12 @@
  * 3. Leave some space on the edges, especially valuable on small screens
  */
 
+// #container{
+// 	overflow: hidden;
+// }
+
 .wrap{
-	padding: 0 $mobile-padding;
-	max-width: calc(100% - #{$mobile-padding*2} );
-	width: 100%; /* 1 */
-	margin-left: auto; /* 2 */
-	margin-right: auto; /* 2 */
-	@include breakpoint($bkpt-1024){
-		max-width: $wrap-width; /* 1 */
-		padding: 0 $internal-padding;
-		// @include with-grid-settings($break,$column-width,$gutter-width,$mobile-padding) {
-		  // @include container($susy); 
-		// }
-		// @include susy-grid-background; //This will show a grid if you unquote it
-	}
-	@include breakpoint($bkpt-1600){
-		max-width: $wrap-width_large; /* 1 */
-	}
-	
+	@include wrapper;	
 }
 /**
  * Hide text while making it readable for screen readers
@@ -86,4 +74,221 @@
 }
 .invisible{
 	visibility: hidden;
+}
+
+
+// images placed by wordpress
+.alignnone{
+	&{ //img
+		width: 100% !important;
+		height: auto;
+		margin: 2em auto;
+		display: block;
+	}
+	&.wp-caption{
+		@include widtho(8);
+		background-color: $color-background;
+		margin-top: 2em;
+		.wp-caption-text{
+			padding: $internal-padding/2 0 0;
+			margin-bottom: 0 !important;
+			text-align: left;
+			font-size: 0.777777778em;
+			line-height: 1.2;
+		}
+		img{
+			width: 100% !important;
+			height: auto;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+	@include breakpoint($bkpt-768){
+		&{ //img
+			@include widtho(8);
+		}
+	}
+	@include breakpoint($bkpt-1280){
+	}
+}
+.aligncenter{
+	&{ //img
+		width: 100% !important;
+		height: auto;
+		margin: 2em auto;
+		display: block;
+	}
+	&.wp-caption{
+		width: 100% !important;
+		background-color: $color-background;
+		margin-top: 2em;
+		.wp-caption-text{
+			padding: $internal-padding/2 0 0;
+			margin-bottom: 0 !important;
+			text-align: left;
+			font-size: 0.777777778em;
+			line-height: 1.2;
+		}
+		img{
+			width: 100% !important;
+			height: auto;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+	@include breakpoint($bkpt-768){
+
+	}
+	@include breakpoint($bkpt-1280){
+	}
+}
+
+.alignleft{
+	&{ //img
+		width: 100%;
+		height: auto;
+		margin: 0em auto 1em;
+		display: block;
+	}
+	&.wp-caption{
+		width: 100%;
+		background-color: $color-white;
+		margin-top: 0;
+		.wp-caption-text{
+			padding: $internal-padding/2 0 0;
+			margin-bottom: 0 !important;
+			text-align: left;
+			font-size: 0.777777778em;
+			line-height: 1.2;
+		}
+		img{
+			width: 100%;
+			height: auto;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+	@include breakpoint($bkpt-768){
+		height: auto;
+		margin-right: $internal-padding;
+		// width: 50% !important;
+		@include widtho(5);
+		float: left;
+	}
+	@include breakpoint($bkpt-1280){
+		// width: 33.3333% !important;
+	}
+}
+.alignright{
+	&{ //img
+		width: 100%;
+		height: auto;
+		margin: 0em auto 1em;
+		display: block;
+	}
+	&.wp-caption{
+		width: 100%;
+		background-color: $color-background;
+		margin-top: 0;
+		.wp-caption-text{
+			padding: $internal-padding/2 0 0;
+			margin-bottom: 0 !important;
+			text-align: left;
+			font-size: 0.777777778em;
+			line-height: 1.2;
+		}
+		img{
+			width: 100%;
+			height: auto;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+	@include breakpoint($bkpt-768){
+		height: auto;
+		margin-left: $internal-padding;
+		
+		@include widtho(5);
+		float: right;
+	}
+	@include breakpoint($bkpt-1280){
+		// width: 33.3333% !important;
+	}
+}
+
+// pagination
+.pagination{
+	overflow: hidden;
+	padding: 1em 0;
+	text-align: center;
+	position: relative;
+	ul{
+		text-align: center;
+		display: inline-block;
+		float: none;
+		li{
+			list-style: none;
+			display: inline-block;
+			float: none;
+			text-align: center;
+			a, a:visited, span{
+				text-decoration: none !important;
+				display: inline-block;
+				padding: 0.5em 1em;
+				border: 2px solid $color-btn-border;
+				border-radius: 50px;
+				background: $color-btn-bg;
+				color: $color-btn;
+				text-transform: uppercase;
+				font-size:0.8em;
+				line-height: $line-height;
+				letter-spacing: 1px;
+				font-weight: 600;
+				transition: all 700ms $ease;
+				box-shadow: $color-btn 0 0px 0px 0px inset;
+				&:hover{
+					background-color: $color-btn-bg;
+					color: $color-foreground;
+				}
+				&:visited{
+					color: $color-btn;
+				}
+			}
+			span{
+				background-color: $color-btn-bg;
+				color: $color-black;
+				border-radius: 50px;
+				&.dots{
+					border-color: darken($pagination-current-border, 10);
+					color: darken($pagination-current-font, 10);
+				}
+			}
+		}
+	}
+}
+
+// social channels
+
+.social-channels{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+	@include de-ul;
+	margin-bottom: 0;
+	li{
+		margin-bottom: 0.5em;
+		a{
+		}
+		&.icon-twitter{
+			// @include icon-social("icon--twitter", "png");	
+			border-radius: 5px;	
+		}
+		&.icon-facebook {
+			// @include icon-social("icon--facebook", "png");
+		}
+		&.icon-instagram {
+			// @include icon-social("icon--instagram", "png");
+		}
+	}
 }

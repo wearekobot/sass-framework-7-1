@@ -119,6 +119,9 @@ $bkpt-max-1600: max-width 1600px;
 $bkpt-1920: min-width 1920px, no-query true;
 $bkpt-min-1920: min-width 1920px;
 
+// primary mobile/desktop breakpoint
+$bkpt-main: $bkpt-1024;
+
 // height breakpoints
 $bkpt-h-480:480px min-height;
 $bkpt-h-600:600px min-height;

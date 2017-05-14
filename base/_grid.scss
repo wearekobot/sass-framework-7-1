@@ -17,6 +17,27 @@
 		margin-right: 0;
 	}
 }
+@mixin grido($column) {
+	// $grid-size: floor(($column/$columns) * 100) + 0%; 
+
+	$grid-size: (($column/$columns) * 100) + 0%; 
+	width: calc(#{$grid-size} - #{$internal-padding});
+	margin-left: #{$internal-padding / 2};
+	margin-right: #{$internal-padding / 2};
+	&:nth-of-type(#{$columns/$column}n+#{$columns/$column}){
+		margin-right: #{$internal-padding / 2};
+	}
+}
+@mixin gridtile{
+  @include breakpoint($bkpt-main){
+    padding-left: $internal-padding/2;
+    padding-right: $internal-padding/2;
+  }
+}
+@mixin widtho($column) {
+	$grid-size: floor(($column/$columns) * 100) + 0%; 
+	width: calc(#{$grid-size} - #{$internal-padding * ($columns / $column - 1) / ($columns / $column)}) !important;
+}
 @mixin pusho($column) {
 	$grid-size: floor(($column/$columns) * 100) + 0%; 
 	margin-left: calc(#{$grid-size} - #{$internal-padding * ($columns / $column - 1) / ($columns / $column)} + #{$internal-padding});
