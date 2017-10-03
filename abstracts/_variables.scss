@@ -69,20 +69,45 @@ $alert-blue:        #d5edf8;
 //Borders
 $color-border: $color-foreground; // Setting up the default border colour used in buttons, forms, etc. (as defined /modules/_forms.scss)
 
+
 // Forms
 $label-width: 100%; // this will determine whether labels and fields are side by side
-$form-font: $font-default;
+$form-font: $font-default-second;
 
 
 $form-color: $color-black;
 $form-label-color: $color-grey;
-$form-placeholder-color: $color-grey-ltr;
+$form-placeholder-color: $color-grey-lt;
 $form-color-background: $color-background;
 $form-color-border: $color-grey;
 $form-color-border-focus: $color-grey-dk;
 $form-color-btn-bg: $color-btn-bg;
 $form-color-btn: $color-btn;
 $form-error-color: $alert-red;
+
+//gravity variables
+$input-bg:           $color-background;
+$input-color:        $color-black;
+$input-border:       $color-grey;
+$input-border-focus: $color-grey-dk;
+$input-label:        $color-grey;
+$input-error:        $color-orange;
+$input-shadow:       none;
+$input-transition:   all .3s ease-in-out;
+
+$form-button-background:       $color-btn-bg;
+$form-button-background-hover: $color-btn-bg;
+$form-button-color:            $color-btn;
+
+$form-required: $color-orange;
+$form-muted:    $color-grey;
+
+$form-font-size:   18px;
+$form-line-height: $form-font-size * 1.5;
+$form-space:       $form-line-height / 2;
+
+$white: $color-white;
+$gray:  $color-grey;
 
 
 // Pagination
