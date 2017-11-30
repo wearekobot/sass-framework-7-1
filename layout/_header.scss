@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 #header {
-	h1{
+	.logo{
 		// @include image-replacement("logo_mobile", "png");
 		position: relative;
 		a{
@@ -12,7 +12,7 @@
 		}
 	}
 	@include breakpoint($bkpt-1024){
-		h1{
+		.logo{
 			// @include image-replacement("logo", "png");
 		}
 	}
