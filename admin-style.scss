@@ -1,0 +1,98 @@
+/******************************************************************
+Site Name: 
+Author: Kobot
+
+Stylesheet: Admin Stylesheet
+
+Here's where the magic happens. Here, you'll see we are calling in
+the separate media queries. The base mobile goes outside any query
+and is called at the beginning, after that we call the rest
+of the styles inside media queries.
+******************************************************************/
+
+/* the form box */
+/*
+This is the Wordpress logo in the admin area.
+You'll have to load your own images and mess
+with the width and height.
+*/
+.login {
+	h1 a {
+		background: url(../images/login-logo.png) no-repeat top center;
+		/* make sure to replace this! */
+		width: 326px;
+		height: 67px;
+		text-indent: -9999px;
+		overflow: hidden;
+		padding-bottom: 15px; 
+		display: block;
+	}
+	
+	form {
+		margin-left: 8px;
+		padding: 26px 24px 46px;
+		font-weight: normal;
+		background: white;
+		border: 1px solid #E5E5E5;
+		border-radius: 3px;
+		box-shadow: none; }
+
+	form .input {
+		font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+		font-weight: 200;
+		font-size: 24px;
+		width: 97%;
+		padding: 3px;
+		margin-top: 2px;
+		margin-right: 6px;
+		margin-bottom: 16px;
+		border: 1px solid #E5E5E5;
+		background: #FBFBFB;
+		outline: none;
+		box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2); 
+	}
+} 
+
+
+/*
+You'll have to override some of the default styles
+but since we're referencing the id, it should be easy.
+*/
+/* login button*/
+
+
+
+#bones_kobot_dashboard_widget_new_post {
+	text-align: center;
+	h1 {
+		margin-bottom: 1em;
+	}
+	p {
+		a, a:visited {
+			font-size: 5em;
+			background-color: #0074a2;
+			color: white;
+			width: 1em;
+			display: inline-block;
+			text-align: center;
+			line-height: 1em;
+			border-radius: 0.25em;
+			border: 1px solid transparent;
+			transition: background-color 0.5s;
+			&:hover{
+				background-color: lighten(#0074a2, 30);
+				border-color: #0074a2;
+				color: #222;
+			}
+		}
+	}
+	.inside {
+		padding: 1em 0 3em 0;
+	}
+	.hndle {
+		display: none;
+	}
+	.handlediv {
+		display: none;
+	}
+}
