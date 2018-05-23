@@ -11,7 +11,7 @@
 			overflow: hidden;
 		}
 	}
-	@include breakpoint($bkpt-1024){
+	@include breakpoint($bkpt-main){
 		.logo{
 			// @include image-replacement("logo", "png");
 		}

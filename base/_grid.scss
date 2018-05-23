@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 .grid, .form-group{
-	@include breakpoint($bkpt-768){
+	@include breakpoint($bkpt-main){
 		display: flex;
 		flex-wrap: wrap;
 		box-sizing: border-box;
@@ -53,12 +53,12 @@
 
 .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve{
 	margin-bottom: 1em;
-	@include breakpoint($bkpt-768){
+	@include breakpoint($bkpt-main){
 		// margin-bottom: 0;
 	}
 }
 
-@include breakpoint($bkpt-768){
+@include breakpoint($bkpt-main){
 	.one{
 
 		@include spano(1);

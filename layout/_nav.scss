@@ -3,21 +3,25 @@
 // -----------------------------------------------------------------------------
 
 #header{
-	nav{
-		@include de-ul;
-		> ul{
+	.header--navigation{
+		 ul{
+			@include de-ul;
 			> li{
 				> a, > a:visited{
 					color: $nav-link;
 					display: block;
-
 					background: transparent;
 					line-height: 1.1;
+					position: relative;
+					transition: color 0s $ease 0s;
+					font-weight: 600;
 					&:hover{
+						color: $nav-link-hover;
+						text-decoration: none;
+						transition: color 0s $ease 0.25s;
 					}
 				}
 				&.current-menu-item > a{
-					background-color: $nav-link-hover;
 				}
 				&.current-menu-item, &.current-menu-ancestor{
 					a, a:visited{
@@ -28,11 +32,14 @@
 						display: block;
 					}
 				}
+				&.nav_cta{
+					position: relative;
+				}
 			}
 		}
 		/// Mobile Navigation
-		@include breakpoint($bkpt-sub-1024){
-			> ul{
+		@include breakpoint($bkpt-sub-main){
+			#menu-header{
 				z-index: 104;
 				position: absolute;
 				top: 3rem;
@@ -53,42 +60,29 @@
 				display: flex;
 				flex-direction: column;
 				box-sizing: border-box;
+				background-color: $nav-link-mobile-bgnd;
+				justify-content: space-around;
 				// transition: left 1s $ease;
+				text-align: center;
 				li{
 					display: block;
-					// @include transition(transform 0.5s 0s $ease);
-				 	//transform: translate3d(-500px, 0,0);
-
-					// $num: 0;
-					// $delay-init: 0;
-					// $delay-increment: 0.125;
-
-					// @while $num < 10 {
-					//     &:nth-of-type(#{$num}) {
-					//         transition-delay: #{$delay-init}s;
-					//     }
-					// 	$delay-init: $delay-init + $delay-increment;
-					//     $num: $num + 1;
-					// }
 					a{
+						font-size: 1.6666em;
+						text-align: center;
 						color: $nav-link-mobile;
-						background-color:  $nav-link-mobile-bgnd;
-						padding: 20px 0 20px 15px;
+						background-color:  transparent;
+						padding: $mobile-padding;
 					}
 				}
-				&.activated{
-					// transition: left 1s $ease;
-					
-					height: calc(100vh - 3rem);
-					li{
-						a, a:visited{
-						}
-					}
-				}
+
 			}
 		}
+
 		// Non Mobile navigation
-		@include breakpoint($bkpt-1024){
+		@include breakpoint($bkpt-main){
+			margin: 0;
+			flex-grow: 2;
+		    margin-left: 2em;
 			> ul{			
 				background: transparent;
 				position: relative;
@@ -98,14 +92,44 @@
 				padding: 0;
 				height: auto;
 				max-height: none;
-				width: auto;
+				width: 100%;
+				display: flex;
+			    justify-content: space-between;
+			    align-items: center;
 				li{
-					
+					display: inline-block;
+					position: relative;
+					&{
+
+						a, a:visited{
+
+						}
+					}
+
+					a, a:visited{
+						position: relative;
+					}
+					&.current-menu-item, &.current-menu-ancestor{
+						a, a:visited{
+						}
+					}
+
 				}
 			}
 		}
 	}
+	&.activated{
+		.header--navigation{
+			#menu-header{
+				height: calc(100vh - 3rem);
+				li{
+					a, a:visited{
+					}
 
+				}
+			}
+		}
+	}
 	.navHamburger{
 		font-size: 2em;
 		line-height: 1.5em;
@@ -122,7 +146,7 @@
 		&:hover{
 			color: $nav-hamburger;
 		}
-		@include breakpoint($bkpt-1024){
+		@include breakpoint($bkpt-main){
 			display: none;
 		}
 	}
