@@ -3,21 +3,33 @@
 // Do not edit. Put all site-specific mixins in site-mixins
 // -----------------------------------------------------------------------------
 
-
 //wrapper
 @mixin wrapper{
-  padding: 0 $mobile-padding;
-  max-width: calc(100% - #{$mobile-padding*2} );
+  padding: 0;
+  max-width: calc(100% - #{$mobile-padding*2});
   width: 100%; /* 1 */
   margin-left: auto; /* 2 */
   margin-right: auto; /* 2 */
-  @include breakpoint($bkpt-1024){
+  @include breakpoint($bkpt-1024) {
     max-width: $wrap-width; /* 1 */
     padding: 0;
   }
-  @include breakpoint($bkpt-1600){
+  @include breakpoint($bkpt-1600) {
     max-width: $wrap-width_large; /* 1 */
   }
+}
+
+@mixin gridder_mobile{
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: $mobile-padding;
+}
+@mixin gridder{
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: $internal-padding;
 }
 
 /// Image Replacement
