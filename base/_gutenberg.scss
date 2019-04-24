@@ -21,61 +21,62 @@
 	$block-bg-padding--h: $block-side-ui-width + $block-side-ui-clearance; // padding for Blocks with a background color (eg: paragraph or group)
 
 
-	// Columns
-	.wp-block-columns {
-		display: flex;
-		margin-bottom: 1em;
+	// // Columns
+	// .wp-block-columns {
+	// 	display: flex;
+	// 	margin-bottom: 1em;
 
-		// Responsiveness: Allow wrapping on mobile.
-		flex-wrap: wrap;
+	// 	// Responsiveness: Allow wrapping on mobile.
+	// 	flex-wrap: wrap;
 
-		@include breakpoint($bkpt-main){
-			flex-wrap: nowrap;
-		}
-	}
+	// 	@include breakpoint($bkpt-main){
+	// 		flex-wrap: nowrap;
+	// 	}
+	// }
 
-	.wp-block-column {
-		margin-bottom: 1em;
-		flex-grow: 1;
+	// .wp-block-column {
+	// 	margin-bottom: 1em;
+	// 	flex-grow: 1;
 
-		// Responsiveness: Show at most one columns on mobile.
-		flex-basis: 100%;
+	// 	// Responsiveness: Show at most one columns on mobile.
+	// 	flex-basis: 100%;
 
-		// Prevent the columns from growing wider than their distributed sizes.
-		min-width: 0;
+	// 	// Prevent the columns from growing wider than their distributed sizes.
+	// 	min-width: 0;
 
-		// Prevent long unbroken words from overflowing.
-		word-break: break-word; // For back-compat.
-		overflow-wrap: break-word; // New standard.
+	// 	// Prevent long unbroken words from overflowing.
+	// 	word-break: break-word; // For back-compat.
+	// 	overflow-wrap: break-word; // New standard.
 
-		@include breakpoint($bkpt-main){
+	// 	@include breakpoint($bkpt-main){
 
-			// Beyond mobile, allow 2 columns.
-			flex-basis: calc(50% - #{$grid-size-large});
-			flex-grow: 0;
+	// 		// Beyond mobile, allow 2 columns.
+	// 		flex-basis: calc(50% - #{$grid-size-large});
+	// 		flex-grow: 0;
 
-			// Add space between the 2 columns. Themes can customize this if they wish to work differently.
-			// Only apply this beyond the mobile breakpoint, as there's only a single column on mobile.
-			&:nth-child(even) {
-				margin-left: $grid-size-large * 2;
-			}
-		}
+	// 		// Add space between the 2 columns. Themes can customize this if they wish to work differently.
+	// 		// Only apply this beyond the mobile breakpoint, as there's only a single column on mobile.
+	// 		&:nth-child(even) {
+	// 			margin-left: $grid-size-large * 2;
+	// 		}
+	// 	}
 
-		@include breakpoint($bkpt-main){
+	// 	@include breakpoint($bkpt-main){
 
-			// When columns are in a single row, add space before all except the first.
-			&:not(:first-child) {
-				margin-left: $grid-size-large * 2;
-			}
-		}
-	}
-
+	// 		// When columns are in a single row, add space before all except the first.
+	// 		&:not(:first-child) {
+	// 			margin-left: $grid-size-large * 2;
+	// 		}
+	// 	}
+	// }
+	@include wp-block-columns;
+	
 	/**
 	 * All Columns Alignment
 	 */
 	.wp-block-columns {
 		&.are-vertically-aligned-top {
-			align-items: flex-start;
+			align-items: grid-start;
 		}
 
 		&.are-vertically-aligned-center {
@@ -83,7 +84,7 @@
 		}
 
 		&.are-vertically-aligned-bottom {
-			align-items: flex-end;
+			align-items: grid-end;
 		}
 	}
 
@@ -96,14 +97,17 @@
 		}
 
 		&.is-vertically-aligned-center {
+			display: flex;
+			flex-direction: column;
 			align-self: center;
 		}
 
 		&.is-vertically-aligned-bottom {
+			display: flex;
+			flex-direction: column;
 			align-self: flex-end;
 		}
 	}
-
 
 	// Text Columns
 	.wp-block-text-columns {
