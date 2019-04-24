@@ -1,0 +1,221 @@
+// -----------------------------------------------------------------------------
+// This file contains Gutenberg style overrides.
+// -----------------------------------------------------------------------------
+#content{
+	// Variables
+	// Grid size
+	$grid-size-small: 4px;
+	$grid-size: 8px;
+	$grid-size-large: 16px;
+
+	// Block UI
+	// $default-block-margin: 28px; // This value provides a consistent, contiguous spacing between blocks (it's 2x $block-padding).
+
+	// Blocks
+	$block-padding: 14px; // Space between block footprint and focus boundaries. These are drawn outside the block footprint, and do not affect the size.
+	$block-spacing: 4px; // Vertical space between blocks.
+	$block-side-ui-width: 28px; // Width of the movers/drag handle UI.
+	$block-side-ui-clearance: 2px; // Space between movers/drag handle UI, and block.
+	$block-container-side-padding: $block-side-ui-width + $block-padding + 2 * $block-side-ui-clearance; // Total space left and right of the block footprint.
+	$block-bg-padding--v: $block-padding + $block-spacing + $block-side-ui-clearance; // padding for Blocks with a background color (eg: paragraph or group)
+	$block-bg-padding--h: $block-side-ui-width + $block-side-ui-clearance; // padding for Blocks with a background color (eg: paragraph or group)
+
+
+	// Columns
+	.wp-block-columns {
+		display: flex;
+		margin-bottom: 1em;
+
+		// Responsiveness: Allow wrapping on mobile.
+		flex-wrap: wrap;
+
+		@include breakpoint($bkpt-main){
+			flex-wrap: nowrap;
+		}
+	}
+
+	.wp-block-column {
+		margin-bottom: 1em;
+		flex-grow: 1;
+
+		// Responsiveness: Show at most one columns on mobile.
+		flex-basis: 100%;
+
+		// Prevent the columns from growing wider than their distributed sizes.
+		min-width: 0;
+
+		// Prevent long unbroken words from overflowing.
+		word-break: break-word; // For back-compat.
+		overflow-wrap: break-word; // New standard.
+
+		@include breakpoint($bkpt-main){
+
+			// Beyond mobile, allow 2 columns.
+			flex-basis: calc(50% - #{$grid-size-large});
+			flex-grow: 0;
+
+			// Add space between the 2 columns. Themes can customize this if they wish to work differently.
+			// Only apply this beyond the mobile breakpoint, as there's only a single column on mobile.
+			&:nth-child(even) {
+				margin-left: $grid-size-large * 2;
+			}
+		}
+
+		@include breakpoint($bkpt-main){
+
+			// When columns are in a single row, add space before all except the first.
+			&:not(:first-child) {
+				margin-left: $grid-size-large * 2;
+			}
+		}
+	}
+
+	/**
+	 * All Columns Alignment
+	 */
+	.wp-block-columns {
+		&.are-vertically-aligned-top {
+			align-items: flex-start;
+		}
+
+		&.are-vertically-aligned-center {
+			align-items: center;
+		}
+
+		&.are-vertically-aligned-bottom {
+			align-items: flex-end;
+		}
+	}
+
+	/**
+	 * Individual Column Alignment
+	 */
+	.wp-block-column {
+		&.is-vertically-aligned-top {
+			align-self: flex-start;
+		}
+
+		&.is-vertically-aligned-center {
+			align-self: center;
+		}
+
+		&.is-vertically-aligned-bottom {
+			align-self: flex-end;
+		}
+	}
+
+
+	// Text Columns
+	.wp-block-text-columns {
+		display: flex;
+
+		&.aligncenter {
+			display: flex;
+		}
+
+		.wp-block-column {
+			margin: 0 16px;
+			padding: 0;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		&.columns-2 .wp-block-column {
+			width: calc(100% / 2);
+		}
+		&.columns-3 .wp-block-column {
+			width: calc(100% / 3);
+		}
+		&.columns-4 .wp-block-column {
+			width: calc(100% / 4);
+		}
+	}
+
+	// Blockquote
+	.wp-block-quote {
+		&.is-style-large,
+		&.is-large {
+			margin: 0 0 16px;
+			padding: 0 1em;
+
+			p {
+				font-size: 1.142857143em;
+				font-style: italic;
+				line-height: 1.6;
+			}
+
+			cite,
+			footer {
+				font-size: .857142857em;
+				text-align: right;
+			}
+		}
+	}
+
+	// Pullquote
+	.wp-block-pullquote {
+		padding: 3em 0;
+		margin-left: 0;
+		margin-right: 0;
+		text-align: center;
+
+		&.alignleft,
+		&.alignright {
+			max-width: $wrap-width / 2;
+
+			p {
+				font-size: 1em;
+			}
+		}
+
+		p {
+			font-size: 1.333333333em;
+			line-height: 1.6;
+		}
+
+		cite,
+		footer {
+			position: relative;
+		}
+		.has-text-color a {
+			color: inherit;
+		}
+	}
+
+	.wp-block-pullquote:not(.is-style-solid-color) {
+		background: none;
+	}
+
+	.wp-block-pullquote.is-style-solid-color {
+		border: none;
+		blockquote {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: left;
+
+			max-width: 60%;
+
+			p {
+				margin-top: 0;
+				margin-bottom: 0;
+				font-size: 1.523809524em;
+			}
+
+			cite {
+				text-transform: none;
+				font-style: normal;
+			}
+		}
+	}
+
+	.wp-block-pullquote cite {
+		color: inherit;
+	}
+
+}
