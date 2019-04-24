@@ -2,121 +2,192 @@
 // This file contains CSS helper classes.
 // -----------------------------------------------------------------------------
 
-.grid, .form-group{
+.grid-flip{
+	direction: rtl;
+}
+.grid-top{
+	align-items: start;
+}
+.grid-end{
+	align-items: end;
+}
+.grid-balance{
+	align-items: center;
+}
+.grid-stretch{
+	align-items: stretch;
+}
+.grid--nudge_one{
 	@include breakpoint($bkpt-main){
-		display: flex;
-		flex-wrap: wrap;
-		box-sizing: border-box;
+		&:before{
+			@include beforeafter;
+			grid-column: span 1;
+		}
 	}
 }
-@mixin spano($column) {
-	$grid-size: floor(($column/$columns) * 100) + 0%; 
-	width: calc(#{$grid-size} - #{$internal-padding * ($columns / $column - 1) / ($columns / $column)});
-	margin-right: #{$internal-padding};
-	&:nth-of-type(#{$columns/$column}n+#{$columns/$column}){
-		margin-right: 0;
+.grid--nudge_two{
+	@include breakpoint($bkpt-main){
+		&:before{
+			@include beforeafter;
+			grid-column: span 2;
+		}
 	}
 }
-@mixin grido($column) {
-	// $grid-size: floor(($column/$columns) * 100) + 0%; 
-
-	$grid-size: (($column/$columns) * 100) + 0%; 
-	width: calc(#{$grid-size} - #{$internal-padding});
-	margin-left: #{$internal-padding / 2};
-	margin-right: #{$internal-padding / 2};
-	&:nth-of-type(#{$columns/$column}n+#{$columns/$column}){
-		margin-right: #{$internal-padding / 2};
+.grid--squeeze_two{
+	@include breakpoint($bkpt-main){
+		&:before{
+			@include beforeafter;
+			grid-column: span 1;
+		}
+		&:after{
+			@include beforeafter;
+			grid-column: span 1;
+		}
 	}
-}
-@mixin gridtile{
-  @include breakpoint($bkpt-main){
-    padding-left: $internal-padding/2;
-    padding-right: $internal-padding/2;
-  }
 }
 @mixin widtho($column) {
 	$grid-size: floor(($column/$columns) * 100) + 0%; 
 	width: calc(#{$grid-size} - #{$internal-padding * ($columns / $column - 1) / ($columns / $column)}) !important;
 }
-@mixin pusho($column) {
-	$grid-size: floor(($column/$columns) * 100) + 0%; 
-	margin-left: calc(#{$grid-size} - #{$internal-padding * ($columns / $column - 1) / ($columns / $column)} + #{$internal-padding});
-}
-@mixin spano-bust{
-	@for $i from 1 through $columns {
-	  &:nth-of-type(#{$columns/$i}n+#{$columns/$i}) {
-	    margin-right: #{$internal-padding};
-	  } 
+.grid{
+	@include gridder_mobile;
+//	 grid-gap: $internal-padding;
+//	grid-gap: 0;
+	&.grid-eight{
+		grid-template-columns: repeat(8, 1fr);
 	}
-}
-// You shouldn't have to edit anything below here
-
-.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve{
-	margin-bottom: 1em;
+	&.grid-six{
+		grid-template-columns: repeat(6, 1fr);
+	}
+	.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve{
+		grid-column: span 12;
+	}
+	.one_m{
+		grid-column: span 1;
+	}
+	.two_m{
+		grid-column: span 2;
+	}
+	.three_m, .col-sm-3{
+		grid-column: span 3;
+	}
+	.four_m{
+		grid-column: span 4;
+	}
+	.five_m{
+		grid-column: span 5;
+	}
+	.six_m{
+		grid-column: span 6;
+	}
+	.seven_m{
+		grid-column: span 7;
+	}
+	.eight_m{
+		grid-column: span 8;
+	}
+	.nine_m, .col-sm-9{
+		grid-column: span 9;
+	}
+	.ten_m{
+		grid-column: span 10;
+	}
+	.eleven_m{
+		grid-column: span 11;
+	}
+	.twelve_m{
+		grid-column: span 12;
+	}
+	@include breakpoint($bkpt-768) {
+		@include gridder_mobile;
+		.one_t{
+			grid-column: span 1;
+		}
+		.two_t{
+			grid-column: span 2;
+		}
+		.three_t, .col-sm-3{
+			grid-column: span 3;
+		}
+		.four_t{
+			grid-column: span 4;
+		}
+		.five_t{
+			grid-column: span 5;
+		}
+		.six_t{
+			grid-column: span 6;
+		}
+		.seven_t{
+			grid-column: span 7;
+		}
+		.eight_t{
+			grid-column: span 8;
+		}
+		.nine_t , .col-sm-9{
+			grid-column: span 9;
+		}
+		.ten_t{
+			grid-column: span 10;
+		}
+		.eleven_t{
+			grid-column: span 11;
+		}
+		.twelve_t{
+			grid-column: span 12;
+		}
+	}
 	@include breakpoint($bkpt-main){
-		// margin-bottom: 0;
+		@include gridder;
+		.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve{
+			padding-left: $internal-padding/2;
+			padding-right: $internal-padding/2;
+		}
+		.one{
+			grid-column: span 1;
+		}
+		.two{
+			grid-column: span 2;
+		}
+		.three, .col-sm-3{
+			grid-column: span 3;
+		}
+		.four{
+			grid-column: span 4;
+		}
+		.five{
+			grid-column: span 5;
+		}
+		.six{
+			grid-column: span 6;
+		}
+		.seven{
+			grid-column: span 7;
+		}
+		.eight{
+			grid-column: span 8;
+		}
+		.nine, , .col-sm-9{
+			grid-column: span 9;
+		}
+		.ten{
+			grid-column: span 10;
+		}
+		.eleven{
+			grid-column: span 11;
+		}
+		.twelve{
+			grid-column: span 12;
+		}
 	}
-}
-
-@include breakpoint($bkpt-main){
-	.one{
-
-		@include spano(1);
-	}
-	.two{
-
-		@include spano(2);
-	}
-	.three, .col-sm-3{
-		@include spano(3);
-	}
-	.four{
-		@include spano(4);
-	}
-	.five{
-		@include spano(5);
-	}
-	.six{
-		@include spano(6);
-	}
-	.seven{
-		@include spano(7);
-	}
-	.eight{
-		@include spano(8);
-	}
-	.nine, , .col-sm-9{
-		@include spano(9);
-	}
-	.ten{
-		@include spano(10);
-	}
-	.eleven{
-		@include spano(11);
-	}
-	.twelve{
-		width: 100%;
-	}
-	.pushOne{
-		@include pusho(1);
-	}
-	.pushTwo{
-		@include pusho(2);
-	}
-	.pushThree{
-		@include pusho(3);
-	}
-	.pushFour{
-		@include pusho(4);
-	}
-	.pushFive{
-		@include pusho(4);
-	}
-	.pushSix{
-		@include pusho(4);
-	}
-
-	.last, .omega{
-		margin-right: 0;
+	&.grid_six{
+		  grid-template-columns: repeat(6, 1fr);
+		  grid-gap: 0;
+		  @include breakpoint($bkpt-main){
+		  	grid-template-columns: repeat(6, 1fr);
+			grid-gap: 0;
+			padding-left: 0;
+			padding-right: 0;
+		  }
 	}
 }

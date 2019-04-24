@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 #header{
 	nav.header--navigation {
-		ul {
+		ul{
 			@include de-ul;
 			margin-bottom: 0;
 			li {
@@ -14,7 +14,6 @@
 					background: transparent;
 					line-height: 1.1;
 					letter-spacing: .089444444em;
-					line-height: 2;
 					text-transform: uppercase;
 					&:after{
 						@include beforeafter;
@@ -55,37 +54,71 @@
 				display: flex;
 				flex-direction: column;
 				box-sizing: border-box;
+				text-align: center;
 				li{
 					display: block;
 					a{
 						color: $nav-link-mobile;
 						background-color:  $nav-link-mobile-bgnd;
 						padding: 20px 0 20px 15px;
+						font-size: 1.5em;
 					}
+					position: relative;
+					right:100%;
+
+					transition: right 0s $ease;
+					transition-delay: 0s;
+					
 				}
 				&.activated{
-					height: calc(100vh - 3rem);
-					li{
-						a, a:visited{
+					@include position(fixed, 3em 0 0 0);
+					height: auto;
+					max-width: 100%;
+					width: auto;
+					padding-left: $mobile-padding;
+					padding-right: $mobile-padding;
+					background-color: $color-bg;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+					li {
+						a, a:visited {
+							display: inline-block;
+							// font-size: 2em;
+						}
+						right: 0;
+						transition: right 0.5s $ease;
+						transform: translate3d(0,0,0);
+						$num: 0;
+						$delay-init: 0;
+						$delay-increment: 0.125;
+						@while $num < 6 {
+						    &:nth-of-type(#{$num}) {
+						        transition-delay: #{$delay-init}s;
+						    }
+							$delay-init: $delay-init + $delay-increment;
+						    $num: $num + 1;
 						}
 					}
 				}
 			}
+
 		}
 		// Non Mobile navigation
 		@include breakpoint($bkpt-main){
+			flex-grow: 2;
 			ul{			
 				display: flex;
 				margin: 0;
 				padding: 0;
 				height: 100%;
+				justify-content: space-between;
 				li {
 					display: flex;
 					justify-content: center;
 					align-items: center;
 					width: 100%;
 					height: 100%;
-					margin-left: 0.5em;
 					a, a:visited {
 						color: $nav-link;
 						font-size: .85714285714285714285em;
