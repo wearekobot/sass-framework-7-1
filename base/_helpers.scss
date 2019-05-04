@@ -390,3 +390,33 @@
 		}
 	}
 }
+
+
+.block--sticky{
+	@include breakpoint($bkpt-768) {
+		position: sticky;
+		top: calc(3em + 5.523809524em);
+		align-self: start;
+		margin-bottom: 1em;
+	}
+}
+.parent--block--sticky{
+	> div{
+		@include breakpoint($bkpt-main) {
+			position: sticky;
+			top: 3em;
+			align-self: start;
+			margin-bottom: 1em;
+		}
+	}
+}
+.full-width {
+	@include breakpoint($bkpt-main){
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;	
+	}
+}
