@@ -56,7 +56,21 @@
     }
   }
 }
-
+@mixin wrapbreaker{
+  margin-left  : calc( -100vw / 2 + 100% / 2 );
+  margin-right : calc( -100vw / 2 + 100% / 2 );
+  max-width    : 100vw;
+}
+@mixin widebgnd($color) {
+  position: relative;
+  &:before{
+    @include beforeafter;
+    background-color: $color;
+    z-index: -1;
+    @include position(absolute, 0 0 0 0);
+    @include wrapbreaker;
+  }
+}
 /// Image Replacement
 
 @import "compass/css3/background-size";
@@ -375,6 +389,59 @@
   a {
     @include image-replacement($image, $type);
     display: inline-block;
+  }
+}
+
+
+@mixin icon-social-svg($file, $color, $hover, $dimension){
+  line-height: 0;
+  margin-bottom: 0;
+  a {
+    background-color: $color;
+    mask-image: url(../images/#{$file});
+    mask-size: contain;
+    width: #{$dimension * 1px};
+    height: #{$dimension * 1px};
+    // background-position: 50%;
+    // background-repeat: no-repeat;
+    text-indent: 1000%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    // background-size: contain;
+    &:hover{
+      background-color: $hover;
+    }
+  }
+}
+@mixin icon-social-text-svg($file, $color, $hover, $dimension){
+  line-height: 0;
+  a {
+    &:before{
+      @include beforeafter;
+      background-color: $color;
+      mask-image: url(../images/#{$file});
+      mask-size: contain;
+      width: #{$dimension * 1px};
+      height: #{$dimension * 1px};
+      // background-position: 50%;
+      // background-repeat: no-repeat;
+      text-indent: 1000%;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      margin-right: 0.5em;
+    }
+
+   
+    // background-size: contain;
+    &:hover{
+      &:before{
+        // background-color: $color;
+      }
+      text-decoration: none;
+      color: $hover;
+    }
   }
 }
 

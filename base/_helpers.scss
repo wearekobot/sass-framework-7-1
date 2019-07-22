@@ -391,26 +391,67 @@
 
 // social channels
 
-.social-channels{
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: space-around;
-	@include de-ul;
-	margin-bottom: 0;
-	li{
-		margin-bottom: 0.5em;
-		a{
+
+// social channels
+#header, #footer{
+	.social-channels {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: flex-start;
+		@include de-ul;
+		margin-bottom: 0;
+		li {
+			margin-bottom: 0.5em;
+			margin-right: 1em;
+			a {
+			}
+			&.icon-twitter{
+				@include icon-social-svg("icon--twitter.svg", $color-foreground, $color-twitter, 30);	
+			}
+			&.icon-facebook {
+				@include icon-social-svg("icon--facebook.svg", $color-foreground, $color-facebook, 30);	
+			}
+			&.icon-instagram {
+				@include icon-social-svg("icon--instagram.svg", $color-foreground, $color-instagram, 30);	
+			}
+			&.icon-youtube {
+				@include icon-social-svg("icon--youtube.svg", $color-foreground,$color-youtube, 30);	
+			}
+			&.icon-linkedin {
+				@include icon-social-svg("icon--linkedin.svg", $color-foreground, $color-linkedin, 30);	
+			}
 		}
-		&.icon-twitter{
-			// @include icon-social("icon--twitter", "png");	
-			border-radius: 5px;	
-		}
-		&.icon-facebook {
-			// @include icon-social("icon--facebook", "png");
-		}
-		&.icon-instagram {
-			// @include icon-social("icon--instagram", "png");
+	}
+}
+#content{
+	.social-channels {
+		margin: 0;
+		padding: 0;
+		@include de-ul;
+		margin-bottom: 0;
+		li {
+			margin-bottom: 0.5em;
+			margin-right: 1em;
+			a {
+				display: flex;
+				align-items: center;
+			}
+			&.icon-twitter{
+				@include icon-social-text-svg("icon--twitter.svg", $color-foreground, $color-twitter, 30);	
+			}
+			&.icon-facebook {
+				@include icon-social-text-svg("icon--facebook.svg", $color-foreground, $color-facebook, 30);	
+			}
+			&.icon-instagram {
+				@include icon-social-text-svg("icon--instagram.svg", $color-foreground, $color-instagram, 30);	
+			}
+			&.icon-youtube {
+				@include icon-social-text-svg("icon--youtube.svg", $color-foreground,$color-youtube, 30);	
+			}
+			&.icon-linkedin {
+				@include icon-social-text-svg("icon--linkedin.svg", $color-foreground, $color-linkedin, 30);	
+			}
 		}
 	}
 }
