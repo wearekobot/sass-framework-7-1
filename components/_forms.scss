@@ -30,173 +30,257 @@
 	color: $form-placeholder-color;
 }
 
+#content{
 
-
-form{
-	> div{ // this will style all input containers
-		overflow: hidden;
-		clear: both;
-	}
-}
-
-// fieldset{
-// 	border:none;
-// 	// padding:0 0 2em 0;
-// 	padding: 0;
-// }
-// legend{
-// 	font-size: 2em;
-// 	line-height: 1.3em;
-// 	margin-bottom: 1em;
-// 	border-bottom: 1px dashed $form-color-background;
-// 	display: block;
-// 	padding-bottom: 0.25em;
-// 	width: 100%;
-// }
-label{
-	@include label-style;
-	// font-weight: 600;
-	// color:$form-label-color;
-	// box-sizing: border-box;
-	// margin-bottom: 0.25em;
-}
-input[type="text"], input[type="number"],  input[type="tel"], input[type="email"], input[type="password"], textarea, select{
-	@include form-field-editor-style;
-	// font-family: $form-font;
-	// background: $form-color-background;
-	// color: $form-color;
-	// border: 1px solid $form-color-border;
-	-webkit-appearance: none;
- //    border-radius: 0.25em;
-	// height:2.5em;
-	// padding:0.25em 0.1em 0.25em 0.5em;
-	// box-sizing: border-box;
-	// transition: border-color 1s $ease, background-color 1s $ease; 
-	// margin-bottom: 0.5em;
-	&:focus{
-	}
-}
-
-textarea{
-	height: auto;
-}
-input[type="radio"], input[type="checkbox"]{
-	width: auto;
-	display: inline-block;
-	margin: 0 5px 0 1px;
-}
-select, select:focus{
-	background-image: url(../images/select_dropdown.png);
-	background-position: 100% 50%;
-	background-repeat: no-repeat;
-	background-size: contain;
-	display:block;
-	-webkit-appearance: none;
-	padding:0.25em 0.1em 0.25em 0.5em;
-	box-sizing: border-box;
-	&:focus{
-		outline:none;
-	}
-}
-
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button {
-	@extend .btn;
-	box-shadow: none;
-	// height:2.5rem;
-	border:none;
-	text-transform: uppercase;
-	transition: background-color 0.5s;
-	line-height: 1;
-	@if $label-width == 100% {
-		display: inline-block;
-	} @else {
-		width:100% - $label-width;
-		height: 2.5rem;
-		padding: 0.5rem 2em;
-		float: right;
-	}
-}
-
-
-/// Form Validation
-.form-error, .validation_message, .validation_error{
-	display: none;
-	color:$form-error-color;
-	@extend .form-note;
-	@if $label-width == 100% {
-		// display: block;
-	} @else {
-		@include breakpoint($bkpt-1024){
-			width: 100% - $label-width;
-			float: right;
+	form{
+		> div{ // this will style all input containers
+			overflow: hidden;
+			clear: both;
 		}
 	}
 
-}
- .validation_error{
-			display: block;
-}
-
-.form-field-error, .gfield_error{
-	input[type="text"], input[type="number"],  input[type="tel"], input[type="email"], input[type="password"], textarea{
-		outline:none;
-		background: rgba($form-color-background, 0.8);
-		border: 1px solid $form-color-border;
-	}
-	.form-error, .validation_message{
-		display: block;
-	}
-}
-
-/// Form Utility Styles
-.form-cancel{
-	font-size: 0.8em;
-	color: $form-error-color;
-
-}
-.form-field-required{
+	// fieldset{
+	// 	border:none;
+	// 	// padding:0 0 2em 0;
+	// 	padding: 0;
+	// }
+	// legend{
+	// 	font-size: 2em;
+	// 	line-height: 1.3em;
+	// 	margin-bottom: 1em;
+	// 	border-bottom: 1px dashed $form-color-background;
+	// 	display: block;
+	// 	padding-bottom: 0.25em;
+	// 	width: 100%;
+	// }
 	label{
-		&:after{
-			content:"required";
-			color: $form-error-color;
+		@include label-style;
+	}
+	input[type="text"], input[type="number"],  input[type="tel"], input[type="email"], input[type="password"], textarea, select{
+		@include form-field-editor-style;
+		// font-family: $form-font;
+		// background: $form-color-background;
+		// color: $form-color;
+		// border: 1px solid $form-color-border;
+		-webkit-appearance: none;
+	 //    border-radius: 0.25em;
+		// height:2.5em;
+		// padding:0.25em 0.1em 0.25em 0.5em;
+		// box-sizing: border-box;
+		// transition: border-color 1s $ease, background-color 1s $ease; 
+		// margin-bottom: 0.5em;
+		&:focus{
+		}
+	}
+
+	textarea{
+		height: auto;
+	}
+	input[type="radio"], input[type="checkbox"]{
+		width: auto;
+		display: inline-block;
+		margin: 0 5px 0 1px;
+	}
+	select, select:focus{
+		background-image: url(../images/select_dropdown.png);
+		background-position: 100% 50%;
+		background-repeat: no-repeat;
+		background-size: contain;
+		display:block;
+		-webkit-appearance: none;
+		padding:0.25em 0.1em 0.25em 0.5em;
+		box-sizing: border-box;
+		&:focus{
+			outline:none;
+		}
+	}
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button {
+		@extend .btn;
+		box-shadow: none;
+		// height:2.5rem;
+		border:none;
+		text-transform: uppercase;
+		transition: background-color 0.5s;
+		line-height: 1;
+		@if $label-width == 100% {
 			display: inline-block;
-			font-size: 0.666em;
-			font-weight: 400;
-			margin-right: 0.125em;
+		} @else {
+			width:100% - $label-width;
+			height: 2.5rem;
+			padding: 0.5rem 2em;
 			float: right;
 		}
 	}
+
+
+	/// Form Validation
+	.form-error, .validation_message, .validation_error{
+		display: none;
+		color:$form-error-color;
+		@extend .form-note;
+		@if $label-width == 100% {
+			// display: block;
+		} @else {
+			@include breakpoint($bkpt-1024){
+				width: 100% - $label-width;
+				float: right;
+			}
+		}
+
+	}
+	 .validation_error{
+				display: block;
+	}
+
+	.form-field-error, .gfield_error{
+		input[type="text"], input[type="number"],  input[type="tel"], input[type="email"], input[type="password"], textarea{
+			outline:none;
+			background: rgba($form-color-background, 0.8);
+			border: 1px solid $form-color-border;
+		}
+		.form-error, .validation_message{
+			display: block;
+		}
+	}
+
+	/// Form Utility Styles
+	.form-cancel{
+		font-size: 0.8em;
+		color: $form-error-color;
+
+	}
+
+	.form-note{
+		font-size: 0.8em;
+		font-style: italic;
+		margin: 0;
+		color: lighten($color-foreground, 20);
+		&.forgotten-password{
+			text-align: right;
+		}
+	}
+
 }
-.form-note{
-	font-size: 0.8em;
-	font-style: italic;
-	margin: 0;
-	color: lighten($color-foreground, 20);
-	&.forgotten-password{
-		text-align: right;
+
+
+/// Gravity fixes
+#content{
+	.gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium{
+		width: 100%;
+	}
+	.gform_wrapper{
+		/// generic form style
+		.gform_fields{
+			max-width: 100%;
+			@include de-ul;
+			.gfield{
+				margin-top: 0;
+				margin-bottom: 2em;
+				&:first-of-type{
+
+				}
+				.gfield_description{
+					padding-top: 0;
+					margin-bottom: 1em;
+				}
+				// section title
+				&.gsection{
+					margin-bottom: 0;
+					h2.gsection_title{
+						font-weight: 600;
+						font-size: 1.714285714em;
+					}
+				}
+				.gfield + .gsection{
+					margin-top: 2em !important;
+					margin-bottom: 0.5em;
+				}
+				.ginput_complex{
+					label{
+						font-size: 1em;
+						font-weight: 400;
+					}
+					span{
+						
+					}
+					.ginput_full{
+						display: block;
+						margin-bottom: 1.5em;
+					}
+					.ginput_left, .input_right{
+						display: inline-block;
+						margin-bottom: 1.5em;
+					}
+				}
+				&.gfield_error{
+					background-color: transparent;
+				    margin-bottom: 2em !important;
+				    border: none;
+				    padding-bottom: 0;
+				    padding-top: 0;
+				    box-sizing: border-box;
+				    input[type="text"], input[type="number"],  input[type="tel"], input[type="email"], input[type="password"], textarea{
+				    	border-color: $form-error-color;
+				    	background-color: rgba($form-error-color, 0.05);
+				    	&:focus{
+				    		border-color: $form-color-border-focus;
+				    		border-bottom-width: 1px;
+				    		outline:none;
+				    		background: rgba($form-color-background, 0);
+				    		box-shadow: 3px 3px 4px 1px $color-blue;
+				    	}
+				    }
+				    label{
+				    	.gfield_required{
+				    		&:after{
+				    			content:"required" !important;
+				    		}
+				    	}
+				    }
+				    .validation_message{
+				    	font-family: $font-default-second;
+				    	font-size: 1em;
+				    	color: $form-error-color;
+				    }
+				}
+			}
+			.gfield_contains_required{
+				label{
+					.gfield_required{
+						float: right;
+						color: $form-error-color;
+						&:after{
+							content:"";
+							font-family: $font-default-second;
+							font-style: italic;
+							font-size: 0.8em;
+							font-weight: 400;
+							color: $form-error-color;
+							display: inline-block;
+							margin-right: 0.125em;
+							float: right;
+						}
+					}
+				}
+				&:first-of-type{
+					label{
+						.gfield_required{
+							&:after{
+								content:"required";
+							}
+						}
+					}
+				}
+			}
+		}
+		.gform_footer{
+			input[type=submit]{
+				float: right;
+			}
+		}
 	}
 }
-
-
-
-
-// /// Gravity fixes
-// .gform_fields{
-// 	@include de-ul;
-// 	.gfield:first-of-type{
-// 		.gfield_required{
-// 			color: $form-error-color;
-// 			&:after{
-// 				content:"required";
-// 				color: $form-error-color;
-// 				display: inline-block;
-// 				font-style: italic;
-// 				font-size: 0.8em;
-// 				font-weight: 400;
-// 			}
-// 		}
-// 	}
-// }
