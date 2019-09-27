@@ -3,25 +3,42 @@
 // -----------------------------------------------------------------------------
 #header{
 	nav.header--navigation {
-		ul{
+		> ul{
 			@include de-ul;
 			margin-bottom: 0;
+
+			//mobile stuff
+			background-color: $color-white;
+			padding-left: $mobile-padding;
+			padding-right: $mobile-padding;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			box-sizing: border-box;
+			z-index: 104;
+			position: absolute;
+			top: 3rem;
+			left: 0em;
+			right: 0em;
+			height:0;
+			&.activated{
+				@include position(fixed, 3em 0 0 0);
+				height: auto;
+				max-width: 100%;
+				width: auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+
+			//basic link styling
 			li {
-				a, a:visited {
-					color: $nav-link;
+				a:active, a:visited {
+					color: $nav-link-mobile;
 					display: block;
 					position: relative;
-					background: transparent;
-					line-height: 1.1;
-					letter-spacing: .089444444em;
-					text-transform: uppercase;
-					&:after{
-						@include beforeafter;
-						@include position(absolute, null 0 0 0);
-						height: 4px;
-					}
 					&:hover, &:focus {
-						color: $nav-link-hover;
+						color: $nav-link-mobile-hover;
 						text-decoration: none;
 					}
 				}
@@ -31,83 +48,32 @@
 				&.current-page-ancestor, 
 				&.current_page_parent {
 					a, a:visited {
-						color: $nav-link-hover;
+						color: $nav-link-mobile-hover;
 					}
 				}
 			}
 		}
-		/// Mobile Navigation
+		/// Mobile Navigation  positioning, hiding, etc
+		// Try to avoid styling in here
 		@include breakpoint($bkpt-sub-1024){
 			> ul{
-				z-index: 104;
-				position: absolute;
-				top: 3rem;
-				left: 0em;
-				right: 0em;
-				width: 100%;
-				margin-bottom: 0;
-				display: block;
-				height:0;
-				overflow: hidden;
-				transition: max-height 1s;
-				transition-delay: 0s;
-				display: flex;
-				flex-direction: column;
-				box-sizing: border-box;
-				text-align: center;
-				li{
-					display: block;
-					a{
-						color: $nav-link-mobile;
-						background-color:  $nav-link-mobile-bgnd;
-						padding: 20px 0 20px 15px;
-						font-size: 1.5em;
-					}
-					position: relative;
-					right:100%;
+				
 
-					transition: right 0s $ease;
-					transition-delay: 0s;
-					
-				}
-				&.activated{
-					@include position(fixed, 3em 0 0 0);
-					height: auto;
-					max-width: 100%;
-					width: auto;
-					padding-left: $mobile-padding;
-					padding-right: $mobile-padding;
-					background-color: $nav-link-mobile-bgnd;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-around;
-					li {
-						a, a:visited {
-							display: inline-block;
-							// font-size: 2em;
-						}
-						right: 0;
-						transition: right 0.5s $ease;
-						transform: translate3d(0,0,0);
-						$num: 0;
-						$delay-init: 0;
-						$delay-increment: 0.125;
-						@while $num < 6 {
-						    &:nth-of-type(#{$num}) {
-						        transition-delay: #{$delay-init}s;
-						    }
-							$delay-init: $delay-init + $delay-increment;
-						    $num: $num + 1;
-						}
-					}
-				}
 			}
-
 		}
 		// Non Mobile navigation
 		@include breakpoint($bkpt-main){
 			flex-grow: 2;
-			ul{			
+			ul{	
+				// undo mobile stuff
+				background-color: transparent;
+				height: auto;
+				position: relative;
+				top: auto;
+				left:auto;
+				right:auto;
+				flex-direction: row;
+				// stylez		
 				display: flex;
 				margin: 0;
 				padding: 0;
@@ -117,22 +83,24 @@
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					width: 100%;
-					height: 100%;
 					a, a:visited {
-						color: $nav-link;
-						font-size: .85714285714285714285em;
-						text-transform: uppercase;
-						font-weight: 600;
+						color: $nav-link; //don't change
 						padding: 0 0.5em;
 						display: inline-block;
 						align-items: center;
-						position: relative;
 						&:hover, &:focus {
-							color: $nav-link-hover;
+							color: $nav-link-hover; //don't change
 							text-decoration: none;
 						}
-
+					}
+					&.current-menu-item,
+					&.current-menu-item, 
+					&.current-menu-ancestor,
+					&.current-page-ancestor, 
+					&.current_page_parent {
+						a, a:visited {
+							color: $nav-link-hover;
+						}
 					}
 				}
 			}
@@ -151,9 +119,6 @@
 		box-sizing: padding-box;
 		background-clip: border-box;
 		color: $nav-hamburger;
-		&:hover{
-			color: $nav-hamburger;
-		}
 		@include breakpoint($bkpt-1024){
 			display: none;
 		}

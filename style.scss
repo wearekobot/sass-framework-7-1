@@ -10,7 +10,8 @@
 	'abstracts/variables',
 	'abstracts/functions',
 	'abstracts/mixins',
-	'abstracts/site-mixins';
+	'abstracts/site-mixins',
+	'abstracts/animations';
 
 // 2. Vendors
 @import
@@ -41,7 +42,9 @@
 // 6. Page-specific styles
 @import
 	'pages/page',
-	'pages/home';
+	'pages/home',
+	'pages/blog',
+	'pages/search';
 
 // 7. Themes
 @import

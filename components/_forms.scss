@@ -2,34 +2,6 @@
 // This file contains all styles related to the form component.
 // -----------------------------------------------------------------------------
 
-
-/// Placeholder Styling
-
-::-webkit-input-placeholder { /* WebKit browsers */
-	font-family: $form-font;
-	font-weight: 100;
-	font-style: italic;
-	color: $form-placeholder-color;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	font-family: $form-font;
-	font-weight: 100;
-	font-style: italic;
-	color: $form-placeholder-color;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-	font-family: $form-font;
-	font-weight: 100;
-	font-style: italic;
-	color: $form-placeholder-color;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-	font-family: $form-font;
-	font-weight: 100;
-	font-style: italic;
-	color: $form-placeholder-color;
-}
-
 #content{
 
 	form{
@@ -37,39 +9,47 @@
 			overflow: hidden;
 			clear: both;
 		}
+		max-width: 40em;
 	}
 
-	// fieldset{
-	// 	border:none;
-	// 	// padding:0 0 2em 0;
-	// 	padding: 0;
-	// }
-	// legend{
-	// 	font-size: 2em;
-	// 	line-height: 1.3em;
-	// 	margin-bottom: 1em;
-	// 	border-bottom: 1px dashed $form-color-background;
-	// 	display: block;
-	// 	padding-bottom: 0.25em;
-	// 	width: 100%;
-	// }
+	fieldset{
+		border:none;
+		// padding:0 0 2em 0;
+		padding: 0;
+	}
+	legend{
+		font-size: 2em;
+		line-height: 1.3em;
+		margin-bottom: 1em;
+		border-bottom: 1px dashed $form-color-background;
+		display: block;
+		padding-bottom: 0.25em;
+		width: 100%;
+	}
 	label{
 		@include label-style;
+		font-weight: 600;
+		color:$form-label-color;
+		box-sizing: border-box;
+		margin-bottom: 0.25em;
+		font-size: 1.333333333em;
 	}
 	input[type="text"], input[type="number"],  input[type="tel"], input[type="email"], input[type="password"], textarea, select{
 		@include form-field-editor-style;
-		// font-family: $form-font;
-		// background: $form-color-background;
-		// color: $form-color;
-		// border: 1px solid $form-color-border;
+		font-family: $form-font;
+		background: $form-color-background;
+		color: $form-color;
+		border: 1px solid $form-color-border;
 		-webkit-appearance: none;
-	 //    border-radius: 0.25em;
-		// height:2.5em;
-		// padding:0.25em 0.1em 0.25em 0.5em;
-		// box-sizing: border-box;
-		// transition: border-color 1s $ease, background-color 1s $ease; 
-		// margin-bottom: 0.5em;
+	    // border-radius: 0.25em;
+		height:2.5em;
+		padding:0.25em 0.1em 0.25em 0.5em;
+		box-sizing: border-box;
+		transition: border-color 1s $ease, background-color 1s $ease; 
+		margin-bottom: 0.5em;
 		&:focus{
+			border-color: $form-color-border-focus;
+			outline:none;
 		}
 	}
 
@@ -95,13 +75,10 @@
 		}
 	}
 
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button {
+	input[type="submit"]{
 		@extend .btn;
 		box-shadow: none;
-		// height:2.5rem;
+		height:2.5rem;
 		border:none;
 		text-transform: uppercase;
 		transition: background-color 0.5s;
@@ -124,6 +101,7 @@
 		@extend .form-note;
 		@if $label-width == 100% {
 			// display: block;
+			width: 100%;
 		} @else {
 			@include breakpoint($bkpt-1024){
 				width: 100% - $label-width;
@@ -136,16 +114,6 @@
 				display: block;
 	}
 
-	.form-field-error, .gfield_error{
-		input[type="text"], input[type="number"],  input[type="tel"], input[type="email"], input[type="password"], textarea{
-			outline:none;
-			background: rgba($form-color-background, 0.8);
-			border: 1px solid $form-color-border;
-		}
-		.form-error, .validation_message{
-			display: block;
-		}
-	}
 
 	/// Form Utility Styles
 	.form-cancel{
@@ -163,7 +131,33 @@
 			text-align: right;
 		}
 	}
+}
 
+/// Placeholder Styling
+
+::-webkit-input-placeholder { /* WebKit browsers */
+	font-family: $form-font;
+	font-weight: 400;
+	font-style: normal;
+	color: $form-placeholder-color;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	font-family: $form-font;
+	font-weight: 400;
+	font-style: normal;
+	color: $form-placeholder-color;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	font-family: $form-font;
+	font-weight: 400;
+	font-style: normal;
+	color: $form-placeholder-color;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	font-family: $form-font;
+	font-weight: 400;
+	font-style: normal;
+	color: $form-placeholder-color;
 }
 
 
@@ -228,10 +222,7 @@
 				    	background-color: rgba($form-error-color, 0.05);
 				    	&:focus{
 				    		border-color: $form-color-border-focus;
-				    		border-bottom-width: 1px;
-				    		outline:none;
 				    		background: rgba($form-color-background, 0);
-				    		box-shadow: 3px 3px 4px 1px $color-blue;
 				    	}
 				    }
 				    label{
@@ -247,6 +238,81 @@
 				    	color: $form-error-color;
 				    }
 				}
+				.gfield_checkbox{
+					li{
+						display: flex;
+						align-items: baseline;
+					}
+
+
+					input[type="checkbox"] {
+					    opacity: 0;
+					    position: absolute;
+					}
+
+					label {
+					    position: relative;
+					    z-index: 1;
+					    display: inline-block;
+					    
+					    /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+					    padding-left: calc(1em + 10px);
+					}
+
+					label::before,
+					label::after {
+					    position: absolute;
+					    content: "";
+					    
+					    /*Needed for the line-height to take effect*/
+					    display: inline-block;
+					}
+
+					/*Outer box of the fake checkbox*/
+					label::before{
+					    height: 1em;
+					    width: 1em;
+					    
+					    border: 1px solid $form-color-border;
+					    background-color: $color-background;
+					    left: 5px;
+					    
+					    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+					     *to vertically center it.
+					     */
+					    top: 3px;
+					}
+
+					/*Checkmark of the fake checkbox*/
+					label::after {
+					    height: 0.5em;
+					    width: 1em;
+					    border-left: 4px solid;
+					    border-bottom: 4px solid;
+					    border-color: $form-color;
+					    transform: rotate(-45deg);
+					    
+					    left: 4px;
+					    top: 3px;
+					}
+
+					/*Hide the checkmark by default*/
+					input[type="checkbox"] + label::after {
+					    content: none;
+					}
+
+					/*Unhide on the checked state*/
+					input[type="checkbox"]:checked + label::after {
+					    content: "";
+					}
+
+					/*Adding focus styles on the outer-box of the fake checkbox*/
+					input[type="checkbox"]:focus + label::before {
+					    outline: rgb(59, 153, 252) auto 5px;
+					}
+
+
+				}
 			}
 			.gfield_contains_required{
 				label{
@@ -257,7 +323,7 @@
 							content:"";
 							font-family: $font-default-second;
 							font-style: italic;
-							font-size: 0.8em;
+							font-size: 0.6em;
 							font-weight: 400;
 							color: $form-error-color;
 							display: inline-block;
@@ -278,6 +344,8 @@
 			}
 		}
 		.gform_footer{
+			padding-top: 0;
+			margin-top: 0em;
 			input[type=submit]{
 				float: right;
 			}

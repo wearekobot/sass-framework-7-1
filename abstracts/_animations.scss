@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// This file contains all site-specific Sass animations.
+// -----------------------------------------------------------------------------
+@keyframes hero_h1_line{
+	0%{
+		width: 0%;
+	}
+	100%{
+		width: 50%;
+	}
+}
+
+
+
+/// here' a nav animation loop
+// right: 0;
+// transition: right 0.5s $ease;
+// transform: translate3d(0,0,0);
+// $num: 0;
+// $delay-init: 0;
+// $delay-increment: 0.125;
+// @while $num < 6 {
+//     &:nth-of-type(#{$num}) {
+//         transition-delay: #{$delay-init}s;
+//     }
+// 	$delay-init: $delay-init + $delay-increment;
+//     $num: $num + 1;
+// }

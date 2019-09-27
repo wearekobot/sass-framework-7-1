@@ -1,0 +1,47 @@
+// -----------------------------------------------------------------------------
+// This file contains default styles that form the base of all pages
+//  as well the basic, event page.
+// -----------------------------------------------------------------------------
+
+.search, .error404{
+	#intro-content{
+
+	}
+	#content{
+		#searchform{
+			display: flex;
+			flex-wrap: wrap;
+			max-width: 100%;
+			justify-content: space-between;
+			label{
+				width: 100%;
+				flex-grow: 2px;
+			}
+			input[type=text]{
+				width: 75%;
+			}
+			input[type=submit]{
+				width: calc(25% - 1em);
+			}
+		}
+		.search-result{
+			margin-bottom: 2em;
+			h2{
+				a, a:visited, a:focus{
+					color: $color-inherit;
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+			}
+			.subtitle{
+				a, a:visited, a:focus{
+					color: inherit;
+					&:hover{
+						
+					}
+				}
+			}
+		}
+	}
+}

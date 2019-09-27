@@ -39,11 +39,9 @@ $link-hover:        lighten($color-foreground, 9%);
 $nav-link: $color-grey;
 $nav-link-hover: $color-grey;
 $nav-link-active: $color-grey;
-$nav-link-mobile: $color-white;
-$nav-link-mobile-bgnd: $color-grey-dk;
-$nav-link-mobile-active-bgnd: $color-grey-lt;
 $nav-hamburger: $color-black;
-$nav-hamburger-hover: $color-black;
+$nav-link-mobile: $nav-link;
+$nav-link-mobile-hover: $nav-link-hover;
 
 //Buttons 
 $color-btn-bg: $color-foreground; // Setting up the default color for the colour of buttons (as defined in /modules/_btn.scss)

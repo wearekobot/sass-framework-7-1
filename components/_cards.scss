@@ -1,0 +1,98 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to card components.
+// -----------------------------------------------------------------------------
+
+#content{
+	.card{
+		position: relative;
+		padding: 0;
+		background-color: $color-white;
+		box-shadow: 6px 5px 6px 1px rgba($color-black,0.30);
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 2em;
+		.block--image{
+			img{
+				display: block;
+				width: 100%;
+			}
+		}
+		.block--content{
+			padding: $mobile-padding;
+			flex-grow: 2;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			position: relative;
+			.supertitle{
+
+			}
+			h3{
+
+			}
+			.entry-content{
+				p{
+					&:last-of-type{
+						margin-bottom: 0;
+					}
+				}
+				.excerpt-read-more{
+					&:hover{
+						
+					}
+				}
+			}
+		}
+		&:hover{
+			.block--content{
+				
+			}
+		}
+		@include breakpoint($bkpt-768){
+			.block--content{
+				padding: $internal-padding;
+				h3{
+					
+				}
+			}
+		}
+		&.card_blog{
+			.block--content{
+				flex-grow: 2;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+		}
+		&.side-by-side{
+			.block--image{
+			}
+			.block--content{
+				.supertitle{
+
+				}
+				.entry-content{
+				}
+			}
+			@include breakpoint($bkpt-768){
+				display: flex;
+				flex-direction: row;
+				margin-bottom: 2em;
+				.block--image{
+					width: #{5/12 * 100%};
+				}
+				.block--content{
+					justify-content: flex-start;
+					width: #{7/12 * 100%};
+					padding: $internal_padding;
+					.entry-content{
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						flex-grow: 2;
+					}
+				}
+			}
+		}
+	}	
+}
