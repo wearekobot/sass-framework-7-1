@@ -51,19 +51,9 @@
 }
 
 @mixin wrapbreaker{
-  // margin-left  : calc( -100vw / 2 + 100% / 2 - #{$nav-width / 2});
-  // margin-right : calc( -100vw / 2 + 100% / 2 + #{$nav-width / 2});
-  margin-left  : $mobile_padding * -1;
-  margin-right : $mobile_padding * -1;
+  margin-left  : calc( -100vw / 2 + 100% / 2 );
+  margin-right : calc( -100vw / 2 + 100% / 2 );
   max-width    : 100vw;
-  @include breakpoint($bkpt-768){
-    margin-left  : calc( -100vw / 2 + 100% / 2 - #{$nav-width_narrow / 2});
-    margin-right : calc( -100vw / 2 + 100% / 2 + #{$nav-width_narrow / 2});
-  }
-  @include breakpoint($bkpt-1440){
-    margin-left  : calc( -100vw / 2 + 100% / 2 - #{$nav-width / 2});
-    margin-right : calc( -100vw / 2 + 100% / 2 + #{$nav-width / 2});
-  }
 }
 @mixin widebgnd($color) {
   position: relative;

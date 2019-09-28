@@ -114,14 +114,14 @@ $form-space:       $form-line-height / 2;
 $white: $color-white;
 $gray:  $color-grey;
 
-
 // Pagination
 $pagination-font: $color-foreground;
 $pagination-font-hover: $color-background;
-$pagination-border: $color-foreground;
-$pagination-border-hover: $color-background;
+$pagination-background: $color-foreground;
+$pagination-background-hover: $color-background;
 $pagination-current-font: $color-foreground;
-$pagination-current-border: $color-background;
+$pagination-current-background: $color-background;
+
 
 
 /// Container's maximum width

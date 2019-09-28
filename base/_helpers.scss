@@ -25,6 +25,9 @@
 .wrap{
 	@include wrapper;	
 }
+.gridbreaker{
+	@include wrapbreaker;
+}
 /**
  * Hide text while making it readable for screen readers
  * 1. Needed in WebKit-based browsers because of an implementation bug;
@@ -242,6 +245,7 @@
 	padding: 1em 0;
 	text-align: center;
 	position: relative;
+	grid-column: span 12;
 	ul{
 		text-align: center;
 		display: inline-block;
@@ -255,10 +259,10 @@
 				text-decoration: none !important;
 				display: inline-block;
 				padding: 0.5em 1em;
-				border: 2px solid $color-btn-border;
+				// border: 2px solid $color-btn-border;
 				border-radius: 50px;
-				background: $color-btn-bg;
-				color: $color-btn;
+				background: $pagination-font;
+				color: $pagination-background;
 				text-transform: uppercase;
 				font-size:0.8em;
 				line-height: $line-height;
@@ -267,20 +271,23 @@
 				transition: all 700ms $ease;
 				box-shadow: $color-btn 0 0px 0px 0px inset;
 				&:hover{
-					background-color: $color-btn-bg;
-					color: $color-foreground;
+					background-color: $pagination-background-hover;
+					color: $pagination-font-hover;
 				}
 				&:visited{
-					color: $color-btn;
+					color: $pagination-font;
 				}
 			}
 			span{
-				background-color: $color-btn-bg;
-				color: $color-black;
+				background-color: $pagination-background;
+				color: $pagination-font;
 				border-radius: 50px;
+				&.current{
+					background-color: lighten($pagination-font, 10);
+				}
 				&.dots{
-					border-color: darken($pagination-current-border, 10);
-					color: darken($pagination-current-font, 10);
+					// border-color: darken($pagination-current-border, 10);
+					color: $pagination-font;
 				}
 			}
 		}
@@ -367,7 +374,38 @@
 
 
 // social channels
-#header, #footer{
+#header{
+	.social-channels {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: flex-start;
+		@include de-ul;
+		margin-bottom: 0;
+		li {
+			margin-bottom: 0.5em;
+			margin-right: 1em;
+			a {
+			}
+			&.icon-twitter{
+				@include icon-social-svg("icon--twitter.svg", $color-foreground, $color-twitter, 30);	
+			}
+			&.icon-facebook {
+				@include icon-social-svg("icon--facebook.svg", $color-foreground, $color-facebook, 30);	
+			}
+			&.icon-instagram {
+				@include icon-social-svg("icon--instagram.svg", $color-foreground, $color-instagram, 30);	
+			}
+			&.icon-youtube {
+				@include icon-social-svg("icon--youtube.svg", $color-foreground,$color-youtube, 30);	
+			}
+			&.icon-linkedin {
+				@include icon-social-svg("icon--linkedin.svg", $color-foreground, $color-linkedin, 30);	
+			}
+		}
+	}
+}
+#footer{
 	.social-channels {
 		margin: 0;
 		padding: 0;
@@ -412,19 +450,48 @@
 				align-items: center;
 			}
 			&.icon-twitter{
-				@include icon-social-text-svg("icon--twitter.svg", $color-foreground, $color-twitter, 30);	
+				@include icon-social-text-svg("icon--twitter_contact.svg", $color-foreground, $color-twitter, 30);	
 			}
 			&.icon-facebook {
-				@include icon-social-text-svg("icon--facebook.svg", $color-foreground, $color-facebook, 30);	
+				@include icon-social-text-svg("icon--facebook_contact.svg", $color-foreground, $color-facebook, 30);	
 			}
 			&.icon-instagram {
-				@include icon-social-text-svg("icon--instagram.svg", $color-foreground, $color-instagram, 30);	
+				@include icon-social-text-svg("icon--instagram_contact.svg", $color-foreground, $color-instagram, 30);	
 			}
 			&.icon-youtube {
-				@include icon-social-text-svg("icon--youtube.svg", $color-foreground,$color-youtube, 30);	
+				@include icon-social-text-svg("icon--youtube_contact.svg", $color-foreground,$color-youtube, 30);	
 			}
 			&.icon-linkedin {
-				@include icon-social-text-svg("icon--linkedin.svg", $color-foreground, $color-linkedin, 30);	
+				@include icon-social-text-svg("icon--linkedin_contact.svg", $color-foreground, $color-linkedin, 30);	
+			}
+		}
+	}
+	.sidebar__blue .social-channels {
+		margin: 0;
+		padding: 0;
+		@include de-ul;
+		margin-bottom: 0;
+		li {
+			margin-bottom: 0.5em;
+			margin-right: 1em;
+			a {
+				display: flex;
+				align-items: center;
+			}
+			&.icon-twitter{
+				@include icon-social-text-svg("icon--twitter_contact.svg", $color-foreground, $color-twitter, 30);	
+			}
+			&.icon-facebook {
+				@include icon-social-text-svg("icon--facebook_contact.svg", $color-foreground, $color-facebook, 30);	
+			}
+			&.icon-instagram {
+				@include icon-social-text-svg("icon--instagram_contact.svg", $color-foreground, $color-instagram, 30);	
+			}
+			&.icon-youtube {
+				@include icon-social-text-svg("icon--youtube_contact.svg", $color-foreground,$color-youtube, 30);	
+			}
+			&.icon-linkedin {
+				@include icon-social-text-svg("icon--linkedin_contact.svg", $color-foreground, $color-linkedin, 30);	
 			}
 		}
 	}
@@ -434,7 +501,7 @@
 .block--sticky{
 	@include breakpoint($bkpt-768) {
 		position: sticky;
-		top: calc(3em + 5.523809524em);
+		top: calc(6em);
 		align-self: start;
 		margin-bottom: 1em;
 	}

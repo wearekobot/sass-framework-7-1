@@ -10,8 +10,14 @@ body {
 	position: relative;
 	text-rendering: optimizelegibility;
 	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+	font-display: fallback;
+	padding-top: 3em;
 	@include breakpoint($bkpt-768){
 		font-size: $font-size;
+	}
+	@include breakpoint($bkpt-main){
+		padding-top: 0;
 	}
 	@include breakpoint($bkpt-1280){
 		font-size: $font-size-large;
@@ -63,5 +69,12 @@ body {
 	}
 	ul, p{
 		margin-top: 0;
+		a, a:visited, a:focus{
+			text-decoration: underline;
+			text-decoration-color: $color-grey;
+			&:hover{
+				
+			}
+		}
 	}
 }
