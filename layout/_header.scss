@@ -4,7 +4,7 @@
 
 #header {
 	.logo{
-		// @include image-replacement("logo_mobile", "png");
+		@include image-replacement-svg("logo.svg", 115, 40);
 		position: relative;
 		a{
 			@include position(absolute, 0 0 0 0);
@@ -13,7 +13,7 @@
 	}
 	@include breakpoint($bkpt-main){
 		.logo{
-			// @include image-replacement("logo", "png");
+			// @include image-replacement-svg("logo.svg", 115, 40);
 		}
 	}
 }
