@@ -33,7 +33,7 @@
 
 			//basic link styling
 			li {
-				a:active, a:visited {
+				a, a:active, a:visited {
 					color: $nav-link-mobile;
 					display: block;
 					position: relative;
