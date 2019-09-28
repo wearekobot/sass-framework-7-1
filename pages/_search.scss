@@ -28,7 +28,7 @@
 			margin-bottom: 2em;
 			h2{
 				a, a:visited, a:focus{
-					color: $color-inherit;
+					color: inherit;
 					&:hover{
 						text-decoration: underline;
 					}
