@@ -229,23 +229,6 @@
 		margin-bottom: 5em;
 		// text-align: center;
 		position: relative;
-		&:before{
-			@include beforeafter;
-			position: absolute;
-			z-index: -1;
-			top: 0;
-			bottom: 0;
-			background-color: transparent;
-			left: 50%;
-		    right: 50%;
-		    margin-left: -50vw;
-		    margin-right: -50vw;
-		    background-position: 100% 0%;
-		    background-size: cover;
-		    background-repeat: no-repeat;
-			background-image: 
-			url(../images/block--quote.svg);
-		}
 		&.alignleft,
 		&.alignright {
 			max-width: $wrap-width / 2;
