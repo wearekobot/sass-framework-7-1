@@ -75,22 +75,37 @@
 }
 
 @mixin wp-block-columns{
-  .wp-block-columns{
-    @include breakpoint($bkpt-main){
-      $num: 0;
-      @while $num < 6 {
-          &.has-#{$num}-columns {
-              @include supagrid($num);
-          }
-        $num: $num + 1;
+  // .wp-block-columns{
+  //   @include breakpoint($bkpt-main){
+  //     $num: 0;
+  //     @while $num < 6 {
+  //         &.has-#{$num}-columns {
+  //             @include supagrid($num);
+  //         }
+  //       $num: $num + 1;
+  //     }
+  //     .wp-block-column{
+  //       grid-column: span 1;
+  //       margin-left: 0;
+  //       margin-right: 0;
+  //     }
+  //   }
+  // }
+  
+   .wp-block-columns {
+
+      // grid-gap: $mobile-padding;
+      @include breakpoint($bkpt-main){
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-gap: $internal-padding;
       }
-      .wp-block-column{
-        grid-column: span 1;
-        margin-left: 0;
-        margin-right: 0;
-      }
-    }
-  }
+   }
+
+  .wp-block-column {
+      grid-row: 1;
+      margin: 0;
+   }
 }
 
 /// Image Replacement
