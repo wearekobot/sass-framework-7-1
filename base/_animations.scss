@@ -1,12 +1,11 @@
-@keyframes scroll{
-  0%{
-     opacity: 1;
-     bottom: 25px;
-  }
-  100%{
-    opacity: 0;
-    // transform: translateY(15px);
-    bottom: 10px;
-  }
-  
+@keyframes scroll {
+	0% {
+		opacity: 1;
+		bottom: 25px;
+	}
+	100% {
+		opacity: 0;
+		// transform: translateY(15px);
+		bottom: 10px;
+	}
 }

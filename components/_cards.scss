@@ -2,8 +2,8 @@
 // This file contains all styles related to card components.
 // -----------------------------------------------------------------------------
 
-#content{
-	.card{
+#content {
+	.card {
 		position: relative;
 		padding: 0;
 		background-color: $color-white;
@@ -11,81 +11,80 @@
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 2em;
-		.block--image{
-			img{
+		.block--image {
+			img {
 				display: block;
 				width: 100%;
 			}
 		}
-		.block--content{
+		.block--content {
 			padding: $mobile-padding;
 			flex-grow: 2;
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
 			position: relative;
-			.supertitle{
-
+			.supertitle {
 			}
-			h3{
-
+			h3 {
 			}
-			.entry-content{
-				p{
-					&:last-of-type{
+			.entry-content {
+				p {
+					&:last-of-type {
 						margin-bottom: 0;
 					}
 				}
-				.excerpt-read-more{
-					&:hover{
+				.excerpt-read-more {
+					&:hover {
 						
 					}
 				}
 			}
 		}
-		&:hover{
-			.block--content{
+		&:hover {
+			.block--content {
 				
 			}
 		}
-		@include breakpoint($bkpt-768){
-			.block--content{
+		@include breakpoint($bkpt-768) {
+			.block--content {
 				padding: $internal-padding;
-				h3{
+				h3 {
 					
 				}
 			}
 		}
-		&.card_blog{
-			.block--content{
+		&.card_blog {
+			.block--content {
 				flex-grow: 2;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
 			}
 		}
-		&.side-by-side{
-			.block--image{
+		&.side-by-side {
+			.block--image {
 			}
-			.block--content{
-				.supertitle{
-
+			.block--content {
+				.supertitle {
+					
 				}
-				.entry-content{
+				.entry-content {
+					
 				}
 			}
-			@include breakpoint($bkpt-768){
+			@include breakpoint($bkpt-768) {
 				display: flex;
 				flex-direction: row;
 				margin-bottom: 2em;
-				.block--image{
+				.block--image {
 					width: #{5/12 * 100%};
 				}
-				.block--content{
+				.block--content {
 					justify-content: flex-start;
 					width: #{7/12 * 100%};
 					padding: $internal_padding;
-					.entry-content{
+					.entry-content {
 						display: flex;
 						flex-direction: column;
 						justify-content: space-between;
@@ -94,5 +93,5 @@
 				}
 			}
 		}
-	}	
+	}
 }

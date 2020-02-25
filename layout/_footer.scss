@@ -1,21 +1,20 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
-#footer{
-	.footer--main{
-		.logo{
+#footer {
+	.footer--main {
+		.logo {
 			// @include image-replacement-svg("logo.svg", 115, 40);
 			// position: relative;
-			// a{
+			// a {
 			// 	@include position(absolute, 0 0 0 0);
 			// 	overflow: hidden;
 			// }
 		}
 	}
-	.footer--minor{
-		p{
+	.footer--minor {
+		p {
 			margin-bottom: 0;
 		}
 	}
-
 }

@@ -24,7 +24,7 @@ with the width and height.
 		height: 67px;
 		text-indent: -9999px;
 		overflow: hidden;
-		padding-bottom: 15px; 
+		padding-bottom: 15px;
 		display: block;
 	}
 	
@@ -35,7 +35,8 @@ with the width and height.
 		background: white;
 		border: 1px solid #E5E5E5;
 		border-radius: 3px;
-		box-shadow: none; }
+		box-shadow: none;
+	}
 
 	form .input {
 		font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
@@ -49,7 +50,7 @@ with the width and height.
 		border: 1px solid #E5E5E5;
 		background: #FBFBFB;
 		outline: none;
-		box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2); 
+		box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
 	}
 } 
 
@@ -68,7 +69,8 @@ but since we're referencing the id, it should be easy.
 		margin-bottom: 1em;
 	}
 	p {
-		a, a:visited {
+		a, 
+		a:visited {
 			font-size: 5em;
 			background-color: #0074a2;
 			color: white;
@@ -79,7 +81,7 @@ but since we're referencing the id, it should be easy.
 			border-radius: 0.25em;
 			border: 1px solid transparent;
 			transition: background-color 0.5s;
-			&:hover{
+			&:hover {
 				background-color: lighten(#0074a2, 30);
 				border-color: #0074a2;
 				color: #222;

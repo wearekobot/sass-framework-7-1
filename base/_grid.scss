@@ -2,192 +2,220 @@
 // This file contains CSS helper classes.
 // -----------------------------------------------------------------------------
 
-.grid-flip{
+.grid-flip {
 	direction: rtl;
 }
-.grid-top{
+.grid-top {
 	align-items: start;
 }
-.grid-end{
+.grid-end {
 	align-items: end;
 }
-.grid-balance{
+.grid-balance {
 	align-items: center;
 }
-.grid-stretch{
+.grid-stretch {
 	align-items: stretch;
 }
-.grid--nudge_one{
-	@include breakpoint($bkpt-main){
-		&:before{
+.grid--nudge_one {
+	@include breakpoint($bkpt-main) {
+		&:before {
 			@include beforeafter;
 			grid-column: span 1;
 		}
 	}
 }
-.grid--nudge_two{
-	@include breakpoint($bkpt-main){
-		&:before{
+.grid--nudge_two {
+	@include breakpoint($bkpt-main) {
+		&:before {
 			@include beforeafter;
 			grid-column: span 2;
 		}
 	}
 }
-.grid--squeeze_two{
-	@include breakpoint($bkpt-main){
-		&:before{
+.grid--squeeze_two {
+	@include breakpoint($bkpt-main) {
+		&:before {
 			@include beforeafter;
 			grid-column: span 1;
 		}
-		&:after{
+		&:after {
 			@include beforeafter;
 			grid-column: span 1;
 		}
 	}
 }
 @mixin widtho($column) {
-	$grid-size: floor(($column/$columns) * 100) + 0%; 
+	$grid-size: floor(($column/$columns) * 100) + 0%;
 	width: calc(#{$grid-size} - #{$internal-padding * ($columns / $column - 1) / ($columns / $column)}) !important;
 }
-.grid{
+.grid {
 	@include gridder_mobile;
 //	 grid-gap: $internal-padding;
 //	grid-gap: 0;
-	&.grid-eight{
+	&.grid-eight {
 		grid-template-columns: repeat(8, 1fr);
 	}
-	&.grid-six{
+	&.grid-six {
 		grid-template-columns: repeat(6, 1fr);
 	}
-	.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve{
+	.one, 
+	.two, 
+	.three, 
+	.four, 
+	.five, 
+	.six, 
+	.seven, 
+	.eight, 
+	.nine, 
+	.ten, 
+	.eleven, 
+	.twelve {
 		grid-column: span 12;
 	}
-	.one_m{
+	.one_m {
 		grid-column: span 1;
 	}
-	.two_m{
+	.two_m {
 		grid-column: span 2;
 	}
-	.three_m, .col-sm-3{
+	.three_m, 
+	.col-sm-3 {
 		grid-column: span 3;
 	}
-	.four_m{
+	.four_m {
 		grid-column: span 4;
 	}
-	.five_m{
+	.five_m {
 		grid-column: span 5;
 	}
-	.six_m{
+	.six_m {
 		grid-column: span 6;
 	}
-	.seven_m{
+	.seven_m {
 		grid-column: span 7;
 	}
-	.eight_m{
+	.eight_m {
 		grid-column: span 8;
 	}
-	.nine_m, .col-sm-9{
+	.nine_m, 
+	.col-sm-9 {
 		grid-column: span 9;
 	}
-	.ten_m{
+	.ten_m {
 		grid-column: span 10;
 	}
-	.eleven_m{
+	.eleven_m {
 		grid-column: span 11;
 	}
-	.twelve_m{
+	.twelve_m {
 		grid-column: span 12;
 	}
 	@include breakpoint($bkpt-768) {
 		@include gridder_mobile;
-		.one_t{
+		.one_t {
 			grid-column: span 1;
 		}
-		.two_t{
+		.two_t {
 			grid-column: span 2;
 		}
-		.three_t, .col-sm-3{
+		.three_t, 
+		.col-sm-3 {
 			grid-column: span 3;
 		}
-		.four_t{
+		.four_t {
 			grid-column: span 4;
 		}
-		.five_t{
+		.five_t {
 			grid-column: span 5;
 		}
-		.six_t{
+		.six_t {
 			grid-column: span 6;
 		}
-		.seven_t{
+		.seven_t {
 			grid-column: span 7;
 		}
-		.eight_t{
+		.eight_t {
 			grid-column: span 8;
 		}
-		.nine_t , .col-sm-9{
+		.nine_t, 
+		.col-sm-9 {
 			grid-column: span 9;
 		}
-		.ten_t{
+		.ten_t {
 			grid-column: span 10;
 		}
-		.eleven_t{
+		.eleven_t {
 			grid-column: span 11;
 		}
-		.twelve_t{
+		.twelve_t {
 			grid-column: span 12;
 		}
 	}
-	@include breakpoint($bkpt-main){
+	@include breakpoint($bkpt-main) {
 		@include gridder;
-		.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve{
+		.one, 
+		.two, 
+		.three, 
+		.four, 
+		.five, 
+		.six, 
+		.seven, 
+		.eight, 
+		.nine, 
+		.ten, 
+		.eleven, 
+		.twelve {
 			padding-left: $internal-padding/2;
 			padding-right: $internal-padding/2;
 		}
-		.one{
+		.one {
 			grid-column: span 1;
 		}
-		.two{
+		.two {
 			grid-column: span 2;
 		}
-		.three, .col-sm-3{
+		.three, 
+		.col-sm-3 {
 			grid-column: span 3;
 		}
-		.four{
+		.four {
 			grid-column: span 4;
 		}
-		.five{
+		.five {
 			grid-column: span 5;
 		}
-		.six{
+		.six {
 			grid-column: span 6;
 		}
-		.seven{
+		.seven {
 			grid-column: span 7;
 		}
-		.eight{
+		.eight {
 			grid-column: span 8;
 		}
-		.nine, , .col-sm-9{
+		.nine, 
+		.col-sm-9 {
 			grid-column: span 9;
 		}
-		.ten{
+		.ten {
 			grid-column: span 10;
 		}
-		.eleven{
+		.eleven {
 			grid-column: span 11;
 		}
-		.twelve{
+		.twelve {
 			grid-column: span 12;
 		}
 	}
-	&.grid_six{
-		  grid-template-columns: repeat(6, 1fr);
-		  grid-gap: 0;
-		  @include breakpoint($bkpt-main){
-		  	grid-template-columns: repeat(6, 1fr);
+	&.grid_six {
+		grid-template-columns: repeat(6, 1fr);
+		grid-gap: 0;
+		@include breakpoint($bkpt-main) {
+			grid-template-columns: repeat(6, 1fr);
 			grid-gap: 0;
 			padding-left: 0;
 			padding-right: 0;
-		  }
+		}
 	}
 }

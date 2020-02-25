@@ -5,107 +5,107 @@
 
 
 //wrapper
-@mixin wrapper{
-  padding: 0;
-  max-width: calc(100% - #{$mobile-padding*2} );
-  width: 100%; /* 1 */
-  margin-left: auto; /* 2 */
-  margin-right: auto; /* 2 */
-  @include breakpoint($bkpt-main){
-    max-width: calc(100% - #{$mobile-padding*4} );
-  }
-  @include breakpoint($bkpt-1280){ //changed from bkpt-main
-    max-width: $wrap-width; /* 1 */
-    padding: 0;
-  }
-  @include breakpoint($bkpt-1600){
-    max-width: $wrap-width_large; /* 1 */
-  }
-  > .wrap{
-    width: 100%;
-    min-width: 100%;
-  }
+@mixin wrapper {
+	padding: 0;
+	max-width: calc(100% - #{$mobile-padding*2} );
+	width: 100%; /* 1 */
+	margin-left: auto; /* 2 */
+	margin-right: auto; /* 2 */
+	@include breakpoint($bkpt-main) {
+		max-width: calc(100% - #{$mobile-padding*4} );
+	}
+	@include breakpoint($bkpt-1280) { //changed from bkpt-main
+		max-width: $wrap-width; /* 1 */
+		padding: 0;
+	}
+	@include breakpoint($bkpt-1600) {
+		max-width: $wrap-width_large; /* 1 */
+	}
+	> .wrap {
+		width: 100%;
+		min-width: 100%;
+	}
 }
 
 //grid
 
-@mixin gridder_mobile{
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: $mobile-padding;
-  grid-row-gap: 0;
+@mixin gridder_mobile {
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: $mobile-padding;
+	grid-row-gap: 0;
 }
-@mixin gridder{
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: $internal-padding;
-  grid-row-gap: 0;
+@mixin gridder {
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: $internal-padding;
+	grid-row-gap: 0;
 }
-@mixin supagrid($columns){
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: repeat(#{$columns}, 1fr);
-  grid-gap: $internal-padding;
+@mixin supagrid($columns) {
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: repeat(#{$columns}, 1fr);
+	grid-gap: $internal-padding;
 }
 
-@mixin wrapbreaker{
-  margin-left  : calc( -100vw / 2 + 100% / 2 );
-  margin-right : calc( -100vw / 2 + 100% / 2 );
-  @include breakpoint($bkpt-main){
-    max-width    : 100vw;
-  }
+@mixin wrapbreaker {
+	margin-left: calc( -100vw / 2 + 100% / 2 );
+	margin-right: calc( -100vw / 2 + 100% / 2 );
+	@include breakpoint($bkpt-main) {
+		max-width: 100vw;
+	}
 }
 @mixin widebgnd($color) {
-  position: relative;
-  &:before{
-    @include beforeafter;
-    background-color: $color;
-    z-index: -1;
-    @include position(absolute, 0 #{$mobile-padding * -1} 0 #{$mobile-padding * -1});
-    @include wrapbreaker;
-  }
-  @include breakpoint($bkpt-main){
-    &:before{
-      left: 0;
-      right: 0;
-    }
-  }
+	position: relative;
+	&:before {
+		@include beforeafter;
+		background-color: $color;
+		z-index: -1;
+		@include position(absolute, 0 #{$mobile-padding * -1} 0 #{$mobile-padding * -1});
+		@include wrapbreaker;
+	}
+	@include breakpoint($bkpt-main) {
+		&:before {
+			left: 0;
+			right: 0;
+		}
+	}
 }
 
-@mixin wp-block-columns{
-  // .wp-block-columns{
-  //   @include breakpoint($bkpt-main){
-  //     $num: 0;
-  //     @while $num < 6 {
-  //         &.has-#{$num}-columns {
-  //             @include supagrid($num);
-  //         }
-  //       $num: $num + 1;
-  //     }
-  //     .wp-block-column{
-  //       grid-column: span 1;
-  //       margin-left: 0;
-  //       margin-right: 0;
-  //     }
-  //   }
-  // }
-  
-   .wp-block-columns {
-
-      // grid-gap: $mobile-padding;
-      @include breakpoint($bkpt-main){
-        display: grid;
-        grid-auto-columns: 1fr;
-        grid-gap: $internal-padding;
-      }
-   }
-
-  .wp-block-column {
-      grid-row: 1;
-      margin: 0;
-   }
+@mixin wp-block-columns {
+//	.wp-block-columns {
+//		@include breakpoint($bkpt-main) {
+//			$num: 0;
+//			@while $num < 6 {
+//				&.has-#{$num}-columns {
+//					@include supagrid($num);
+//				}
+//				$num: $num + 1;
+//			}
+//			.wp-block-column {
+//				grid-column: span 1;
+//				margin-left: 0;
+//				margin-right: 0;
+//			}
+//		}
+//	}
+	
+	.wp-block-columns {
+		
+		// grid-gap: $mobile-padding;
+		@include breakpoint($bkpt-main) {
+			display: grid;
+			grid-auto-columns: 1fr;
+			grid-gap: $internal-padding;
+		}
+	}
+	
+	.wp-block-column {
+		grid-row: 1;
+		margin: 0;
+	}
 }
 
 /// Image Replacement
@@ -113,259 +113,255 @@
 @import "compass/css3/background-size";
 
 @mixin bgnd-retina($file, $type) {
-  $image: ($file + '.' + $type);
-  background-image: image-url($image);
- 
-  @media only screen and (-webkit-min-device-pixel-ratio: 2)
-  {
-    $image2x: ($file + '@2x.' + $type);
-    background-image: image-url($image2x);
-    @include background-size(image-width($image) auto);
-  }
+	$image: ($file + '.' + $type);
+	background-image: image-url($image);
+	
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		$image2x: ($file + '@2x.' + $type);
+		background-image: image-url($image2x);
+		@include background-size(image-width($image) auto);
+	}
 }
 
 @mixin background-image-retina($file, $type) {
-  $image: ($file + '.' + $type);
-  background-image: image-url($image);
-  height: image-height($image);
-  width: image-width($image);
-
-  @media only screen and (-webkit-min-device-pixel-ratio: 2)
-  {
-    $image2x: ($file + '@2x.' + $type);
-    background-image: image-url($image2x);
-    @include background-size(image-width($image) auto);
-  }
+	$image: ($file + '.' + $type);
+	background-image: image-url($image);
+	height: image-height($image);
+	width: image-width($image);
+	
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		$image2x: ($file + '@2x.' + $type);
+		background-image: image-url($image2x);
+		@include background-size(image-width($image) auto);
+	}
 }
 
 @mixin image-replacement($file, $type) {
-  @include background-image-retina($file, $type);
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  text-indent: 1000%;
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
+	@include background-image-retina($file, $type);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	text-indent: 1000%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
 }
 @mixin image-replacement-svg($file, $width, $height) {
-  background-image: url(../images/#{$file});
-  width: #{$width * 1px};
-  height: #{$height * 1px};
-  background-position: 50%;
-  background-repeat: no-repeat;
-  text-indent: 1000%;
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-  background-size: contain;
+	background-image: url(../images/#{$file});
+	width: #{$width * 1px};
+	height: #{$height * 1px};
+	background-position: 50%;
+	background-repeat: no-repeat;
+	text-indent: 1000%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+	background-size: contain;
 }
 @mixin header-replacement($file, $type) {
-  $image: ($file + '.' + $type);
-  background-image: image-url($image);
-  height: image-height($image)/2;
-  width: image-width($image)/2;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-  @media only screen and (-webkit-min-device-pixel-ratio: 2)
-  {
-    $image2x: ($file + '@2x.' + $type);
-    background-image: image-url($image2x);
-    // @include background-size(image-width($image)/2 auto);
-  }
+	$image: ($file + '.' + $type);
+	background-image: image-url($image);
+	height: image-height($image)/2;
+	width: image-width($image)/2;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: contain;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		$image2x: ($file + '@2x.' + $type);
+		background-image: image-url($image2x);
+		// @include background-size(image-width($image)/2 auto);
+	}
 }
 
 
 /// Full Screen Background with ios fix
-@mixin fullscreenbackground($image){
-  $background-file-name: $image;
-  background-image: image-url($background-file-name);
-  background-repeat: no-repeat;
-  background-position: center center;
-  @include breakpoint($bkpt-1024){
-    background-attachment: fixed;
-    background-size: cover;
-  }
-  /* for background-size:cover replacement on iOS devices */
-  @media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
-    -webkit-background-size: auto 150%;
-    background-attachment: scroll;
-    background-position: top center;
-  }
-  @media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
-    -webkit-background-size: 150% auto;
-    background-attachment: scroll;
-    background-position: top center;
-  }
+@mixin fullscreenbackground($image) {
+	$background-file-name: $image;
+	background-image: image-url($background-file-name);
+	background-repeat: no-repeat;
+	background-position: center center;
+	@include breakpoint($bkpt-1024) {
+		background-attachment: fixed;
+		background-size: cover;
+	}
+	/* for background-size:cover replacement on iOS devices */
+	@media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
+		-webkit-background-size: auto 150%;
+		background-attachment: scroll;
+		background-position: top center;
+	}
+	@media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
+		-webkit-background-size: 150% auto;
+		background-attachment: scroll;
+		background-position: top center;
+	}
 }
 
 /// vertically centers element in its parent (needs position and height declaration)
 @mixin vertical-align {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
-  @include breakpoint($bkpt-768){
-    position: relative;
-  }
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	left: 0;
+	right: 0;
+	@include breakpoint($bkpt-768) {
+		position: relative;
+	}
 }
-@mixin vertical-align-parent{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@mixin vertical-align-parent {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
-
 
 /// Section Height
-%fullheight{
-  min-height: 100vh;
-  @include vertical-align-parent;
-  @include breakpoint($bkpt-ipad){
-    height:  calc(100vh - 60px);
-    min-height: 0;
-  }
-  @include breakpoint($bkpt-1024){
-    // height: 100vh;
-    min-height: 0;
-    // min-height: 100vh;
-    height:  calc(100vh);
-  }
+%fullheight {
+	min-height: 100vh;
+	@include vertical-align-parent;
+	@include breakpoint($bkpt-ipad) {
+		height: calc(100vh - 60px);
+		min-height: 0;
+	}
+	@include breakpoint($bkpt-1024) {
+		// height: 100vh;
+		min-height: 0;
+		// min-height: 100vh;
+		height: calc(100vh);
+	}
 }
-%peakheight{
-  min-height: 70vh;
-  @include vertical-align-parent;
-  @include breakpoint($bkpt-768){
-    min-height: 70vh;
-    box-sizing: border-box;
-    // min-height: 0;
-    // height: 70vh;
-    height: auto;
-  }
+%peakheight {
+	min-height: 70vh;
+	@include vertical-align-parent;
+	@include breakpoint($bkpt-768) {
+		min-height: 70vh;
+		box-sizing: border-box;
+		// min-height: 0;
+		// height: 70vh;
+		height: auto;
+	}
 }
-%blogheight{
-  min-height: 50vh;
-  @include vertical-align-parent;
-  @include breakpoint($bkpt-768){
-    min-height: 85vh;
-    box-sizing: border-box;
-    // min-height: 0;
-    height: auto;
-  }
-}
-
-%halfheight{
-  min-height: 50vh;
-  @include vertical-align-parent;
-  @include breakpoint($bkpt-1280){
-    min-height: 40vh;
-    box-sizing: border-box;
-    // min-height: 0;
-  }
+%blogheight {
+	min-height: 50vh;
+	@include vertical-align-parent;
+	@include breakpoint($bkpt-768) {
+		min-height: 85vh;
+		box-sizing: border-box;
+		// min-height: 0;
+		height: auto;
+	}
 }
 
-%leader-sm-height{
-  // min-height: 25vh;
-  min-height: 350px;
-  @include breakpoint($bkpt-768){
-    // height: 25vh;
-    box-sizing: border-box;
-    // min-height: 0;
-    height: 350px
-  }
-  @include breakpoint($bkpt-1600){
-    height: 40vh;
-    // min-height: 35vh;
-  }
-}
-%leader-smr-height{
-  // min-height: 25vh;
-  min-height: 150px;
-  @include breakpoint($bkpt-768){
-    // height: 25vh;
-    box-sizing: border-box;
-    // min-height: 0;
-    height: 150px
-  }
+%halfheight {
+	min-height: 50vh;
+	@include vertical-align-parent;
+	@include breakpoint($bkpt-1280) {
+		min-height: 40vh;
+		box-sizing: border-box;
+		// min-height: 0;
+	}
 }
 
-%unheight{
-  min-height: auto;
-  @include breakpoint($bkpt-768){
-    height: auto;
-    min-height: auto;
-  }
+%leader-sm-height {
+	// min-height: 25vh;
+	min-height: 350px;
+	@include breakpoint($bkpt-768) {
+		// height: 25vh;
+		box-sizing: border-box;
+		// min-height: 0;
+		height: 350px
+	}
+	@include breakpoint($bkpt-1600) {
+		height: 40vh;
+		// min-height: 35vh;
+	}
+}
+%leader-smr-height {
+	// min-height: 25vh;
+	min-height: 150px;
+	@include breakpoint($bkpt-768) {
+		// height: 25vh;
+		box-sizing: border-box;
+		// min-height: 0;
+		height: 150px
+	}
+}
+
+%unheight {
+	min-height: auto;
+	@include breakpoint($bkpt-768) {
+		height: auto;
+		min-height: auto;
+	}
 }
 
 
 /// vertically align cards
-@mixin vert-align{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+@mixin vert-align {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 // responsive background-images
-
-@mixin leader-bgi($filename){
-  background-image: url(../images/#{$filename}_mobile.jpg);
-  @include breakpoint($bkpt-768){
-    background-image: url(../images/#{$filename}_sm.jpg);
-  }
-  @include breakpoint($bkpt-1024){
-    background-image: url(../images/#{$filename}_med.jpg);
-    &:before, &:after{    
-      background-size: contain;
-    }
-  }
-  @include breakpoint($bkpt-1600){
-    background-image: url(../images/#{$filename}.jpg);
-  }
-  @include breakpoint($bkpt-1920){
-    background-image: url(../images/#{$filename}_lg.jpg);
-  }
+@mixin leader-bgi($filename) {
+	background-image: url(../images/#{$filename}_mobile.jpg);
+	@include breakpoint($bkpt-768) {
+		background-image: url(../images/#{$filename}_sm.jpg);
+	}
+	@include breakpoint($bkpt-1024) {
+		background-image: url(../images/#{$filename}_med.jpg);
+		&:before, 
+		&:after {
+			background-size: contain;
+		}
+	}
+	@include breakpoint($bkpt-1600) {
+		background-image: url(../images/#{$filename}.jpg);
+	}
+	@include breakpoint($bkpt-1920) {
+		background-image: url(../images/#{$filename}_lg.jpg);
+	}
 }
 
 /// Formating Utilities
-
-@mixin beforeafter{
-  content:"";
-  display: block;
+@mixin beforeafter {
+	content:"";
+	display: block;
 }
 
 
 @mixin de-ul {
-  margin: 0 0 1em 0;
-  padding: 0;
-  list-style-type: none;
-  li{
-    display: block;
-  }    
+	margin: 0 0 1em 0;
+	padding: 0;
+	list-style-type: none;
+	li {
+		display: block;
+	}
 }
+
 @mixin reset-ul {
-  display: block; 
-  list-style-type: disc; 
-  margin: 1em 0; 
-  padding-left: 40px;
-  li{
-    display: list-item;
-  }
+	display: block;
+	list-style-type: disc;
+	margin: 1em 0;
+	padding-left: 40px;
+	li {
+		display: list-item;
+	}
 }
 @mixin reset-ol {
-  display: block; 
-  list-style-type: decimal; 
-  margin: 1em 0; 
-  padding-left: 40px;
-  li{
-    display: list-item;
-  }
+	display: block;
+	list-style-type: decimal;
+	margin: 1em 0;
+	padding-left: 40px;
+	li {
+		display: list-item;
+	}
 }
 
 
@@ -374,129 +370,128 @@
 /// @param {Bool} $self [false] - Whether or not to include current selector
 /// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
 @mixin on-event($self: false) {
-  @if $self {
-    &,
-    &:hover,
-    &:active,
-    &:focus {
-      @content;
-    }
-  } @else {
-    &:hover,
-    &:active,
-    &:focus {
-      @content;
-    }
-  }
+	@if $self {
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	} @else {
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	}
 }
 
 /// Make a context based selector a little more friendly
 /// @author Hugo Giraudel
 /// @param {String} $context
 @mixin when-inside($context) {
-  #{$context} & {
-    @content;
-  }
+	#{$context} & {
+		@content;
+	}
 }
 
 
 /// styling out whether the labels and inputs are stacked or side by side
-@mixin label-style{
-  @if $label-width == 100% {
-    display: block;
-    text-align: left;
-    width: 100%;
-  } @else {
-    @include breakpoint($bkpt-main){
-      width: $label-width;
-      float: left;
-      text-align: right;
-      height:2.5em;
-      padding:0.25em 0.35em 0.25em 0;
-      line-height:2em;
-      margin:0;
-    }
-  }
-
+@mixin label-style {
+	@if $label-width == 100% {
+		display: block;
+		text-align: left;
+		width: 100%;
+	} @else {
+		@include breakpoint($bkpt-main) {
+			width: $label-width;
+			float: left;
+			text-align: right;
+			height: 2.5em;
+			padding: 0.25em 0.35em 0.25em 0;
+			line-height: 2em;
+			margin: 0;
+		}
+	}
 }
-@mixin form-field-editor-style{ // the input field
-  @if $label-width == 100% {
-    display: block;
-    width: 100%;
-  } @else {
-    @include breakpoint($bkpt-main){
-      width: 100% - $label-width;
-      float: left;
-    }
-  }
-}
-
-@mixin icon-social($image, $type){
-  a {
-    @include image-replacement($image, $type);
-    display: inline-block;
-  }
+@mixin form-field-editor-style { // the input field
+	@if $label-width == 100% {
+		display: block;
+		width: 100%;
+	} @else {
+		@include breakpoint($bkpt-main) {
+			width: 100% - $label-width;
+			float: left;
+		}
+	}
 }
 
-@mixin icon-social-svg($file, $color, $hover, $dimension){
-  line-height: 0;
-  margin-bottom: 0;
-  a {
-    width: #{$dimension * 1px};
-    height: #{$dimension * 1px};
-    text-indent: 1000%;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    // svg mask
-    background-color: $color;
-    mask-image: url(../images/#{$file});
-    mask-size: contain;
-    // svg background (old IE)
-    // background-image: url(../images/#{$file});
-    // background-size: contain;
-    &:hover{
-      background-color: $hover;
-    }
-  }
+@mixin icon-social($image, $type) {
+	a {
+		@include image-replacement($image, $type);
+		display: inline-block;
+	}
 }
-@mixin icon-social-text-svg($file, $color, $hover, $dimension){
-  line-height: 0;
-  a {
-    &:before{
-      @include beforeafter;
-      width: #{$dimension * 1px};
-      height: #{$dimension * 1px};
-      text-indent: 1000%;
-      white-space: nowrap;
-      overflow: hidden;
-      display: inline-block;
-      margin-right: 0.5em;
-      // svg mask
-      background-color: $color;
-      mask-image: url(../images/#{$file});
-      mask-size: contain;
-      // svg background (old IE)
-      // background-image: url(../images/#{$file});
-      // background-size: contain;
-    }
-    &:hover{
-      text-decoration: none;
-      color: $hover;
-      &:before{
 
-      }
-    }
-  }
+@mixin icon-social-svg($file, $color, $hover, $dimension) {
+	line-height: 0;
+	margin-bottom: 0;
+	a {
+		width: #{$dimension * 1px};
+		height: #{$dimension * 1px};
+		text-indent: 1000%;
+		white-space: nowrap;
+		overflow: hidden;
+		display: inline-block;
+		// svg mask
+		background-color: $color;
+		mask-image: url(../images/#{$file});
+		mask-size: contain;
+		// svg background (old IE)
+		// background-image: url(../images/#{$file});
+		// background-size: contain;
+		&:hover {
+			background-color: $hover;
+		}
+	}
+}
+
+@mixin icon-social-text-svg($file, $color, $hover, $dimension) {
+	line-height: 0;
+	a {
+		&:before {
+			@include beforeafter;
+			width: #{$dimension * 1px};
+			height: #{$dimension * 1px};
+			text-indent: 1000%;
+			white-space: nowrap;
+			overflow: hidden;
+			display: inline-block;
+			margin-right: 0.5em;
+			// svg mask
+			background-color: $color;
+			mask-image: url(../images/#{$file});
+			mask-size: contain;
+			// svg background (old IE)
+			// background-image: url(../images/#{$file});
+			// background-size: contain;
+		}
+		&:hover {
+			text-decoration: none;
+			color: $hover;
+			&:before {
+			}
+		}
+	}
 }
 
 // ie fixy
 @mixin ie() {
-    /* the fallback for IE 10, 11 and Edge. */
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      @content;
-    }
-    @supports (-ms-ime-align:auto) {
-      @content;
-    }
+	/* the fallback for IE 10, 11 and Edge. */
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+	@supports (-ms-ime-align:auto) {
+		@content;
+	}
 }

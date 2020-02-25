@@ -2,28 +2,17 @@
 // This file contains all @font-face declarations, if any.
 // -----------------------------------------------------------------------------
 
-@mixin font-builder($font-name, $font-face, $weight){
-    @font-face {
-        font-family: $font-name;
-        // src: url('../webfonts/#{$font-face}-webfont.eot');
-        // src: url('../webfonts/#{$font-face}-webfont.eot?#iefix') format('embedded-opentype'),
-            src: url('../webfonts/#{$font-face}.woff') format('woff'),
-             url('../webfonts/#{$font-face}.ttf') format('truetype');
-             // url('../webfonts/#{$font-face}-webfont.svg') format('svg');
-        font-weight: $weight;
-        font-style: normal;
-    }
-    //     @font-face {
-    //     font-family: $font-name;
-    //     src: url('../webfonts/#{$font-face}-Italic-webfont.eot');
-    //     src: url('../webfonts/#{$font-face}-Italic-webfont.eot?#iefix') format('embedded-opentype'),
-    //          url('../webfonts/#{$font-face}-Italic-webfont.woff') format('woff'),
-    //          url('../webfonts/#{$font-face}-Italic-webfont.ttf') format('truetype'),
-    //          url('../webfonts/#{$font-face}-Italic-webfont.svg') format('svg');
-    //     font-weight: $weight;
-    //     font-style: italic;
-    // }
+@mixin font-builder($font-name, $font-face, $weight) {
+	@font-face {
+		font-family: $font-name;
+		// src: url('../webfonts/#{$font-face}-webfont.eot');
+		// src: url('../webfonts/#{$font-face}-webfont.eot?#iefix') format('embedded-opentype'),
+		src: url('../webfonts/#{$font-face}.woff') format('woff'),
+			 url('../webfonts/#{$font-face}.ttf') format('truetype');
+			 // url('../webfonts/#{$font-face}-webfont.svg') format('svg');
+		font-weight: $weight;
+		font-style: normal;
+	}
 }
-
 
 // @include font-builder("", "", 400);

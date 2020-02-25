@@ -1,9 +1,9 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the navigation of the site/application.
 // -----------------------------------------------------------------------------
-#header{
+#header {
 	nav.header--navigation {
-		.header-nav > ul{
+		.header-nav > ul {
 			@include de-ul;
 			margin-bottom: 0;
 
@@ -20,7 +20,7 @@
 			top: 3rem;
 			left: 0em;
 			right: 0em;
-			height:0;
+			height: 0;
 			.nav-activated &{
 				@include position(fixed, 3em 0 0 0);
 				height: auto;
@@ -33,11 +33,14 @@
 
 			//basic link styling
 			li {
-				a, a:active, a:visited {
+				a, 
+				a:active, 
+				a:visited {
 					color: $nav-link-mobile;
 					display: block;
 					position: relative;
-					&:hover, &:focus {
+					&:hover, 
+					&:focus {
 						color: $nav-link-mobile-hover;
 						text-decoration: none;
 					}
@@ -47,33 +50,33 @@
 				&.current-menu-ancestor,
 				&.current-page-ancestor, 
 				&.current_page_parent {
-					a, a:visited {
+					a, 
+					a:visited {
 						color: $nav-link-mobile-hover;
 					}
 				}
 			}
 		}
-		/// Mobile Navigation  positioning, hiding, etc
+		/// Mobile Navigation positioning, hiding, etc
 		// Try to avoid styling in here
-		@include breakpoint($bkpt-sub-1024){
-			.header-nav > ul{
+		@include breakpoint($bkpt-sub-1024) {
+			.header-nav > ul {
 				
-
 			}
 		}
 		// Non Mobile navigation
-		@include breakpoint($bkpt-main){
+		@include breakpoint($bkpt-main) {
 			flex-grow: 2;
-			.header-nav > ul{	
+			.header-nav > ul {
 				// undo mobile stuff
 				background-color: transparent;
 				height: auto;
 				position: relative;
 				top: auto;
-				left:auto;
-				right:auto;
+				left: auto;
+				right: auto;
 				flex-direction: row;
-				// stylez		
+				// stylez
 				display: flex;
 				margin: 0;
 				padding: 0;
@@ -83,12 +86,14 @@
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					a, a:visited {
+					a, 
+					a:visited {
 						color: $nav-link; //don't change
 						padding: 0 0.5em;
 						display: inline-block;
 						align-items: center;
-						&:hover, &:focus {
+						&:hover, 
+						&:focus {
 							color: $nav-link-hover; //don't change
 							text-decoration: none;
 						}
@@ -98,7 +103,8 @@
 					&.current-menu-ancestor,
 					&.current-page-ancestor, 
 					&.current_page_parent {
-						a, a:visited {
+						a, 
+						a:visited {
 							color: $nav-link-hover;
 						}
 					}
@@ -106,11 +112,11 @@
 			}
 		}
 	}
-	.navHamburger{
+	.navHamburger {
 		font-size: 2em;
 		line-height: 1.5em;
 		position: absolute;
-		z-index:100;
+		z-index: 100;
 		left: auto;
 		right: 0.5em;
 		top: 0;
@@ -119,7 +125,7 @@
 		box-sizing: padding-box;
 		background-clip: border-box;
 		color: $nav-hamburger;
-		@include breakpoint($bkpt-1024){
+		@include breakpoint($bkpt-1024) {
 			display: none;
 		}
 	}

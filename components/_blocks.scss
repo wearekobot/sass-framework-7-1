@@ -2,14 +2,14 @@
 // This file contains all styles related to general block components.
 // -----------------------------------------------------------------------------
 
-#intro-block{
+#intro-block {
 	min-height: 100px;
 	position: relative;
-	.wrap{
+	.wrap {
 		position: relative;
 		z-index: 1;
-		h1{
-			span{
+		h1 {
+			span {
 				font-size: 0.5em;
 				display: block;
 				font-weight: 400;
@@ -18,12 +18,12 @@
 			}
 		}
 	}
-	&.leader{
+	&.leader {
 		@extend %fullheight;
-		.wrap{
+		.wrap {
 		}
 	}
-	&.leader-sm{
+	&.leader-sm {
 		@extend %halfheight;
 	}
 }

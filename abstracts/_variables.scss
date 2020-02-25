@@ -2,20 +2,16 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-
-
-
 /// Typography Variables
 $font-size-mobile: 16px;
 $font-size: 18px;
 $font-size-large: 21px;
 $line-height: 1.4;
 $font-default: Helvetica, Arial, sans-serif;
-$font-default-second:  Helvetica, Arial Narrow, Tahoma, Geneva, Helvetica, Arial, sans-serif;
+$font-default-second: Helvetica, Arial Narrow, Tahoma, Geneva, Helvetica, Arial, sans-serif;
 
 
 /// Colours
-
 $color-white: #ffffff;
 $color-black: #000000;
 $color-grey: #666;
@@ -24,16 +20,14 @@ $color-grey-lt: lighten($color-grey, 5);
 $color-grey-ltr: lighten($color-grey, 10);
 $color-orange: #f0ad4e;
 
-
 $color-foreground: $color-grey-dk;
 $color-background: $color-white;
-
 
 $color-highlight-foregound: $color-background;
 $color-highlight-backgound: $color-foreground;
 
-$link-color:        inherit;
-$link-hover:        lighten($color-foreground, 9%);
+$link-color: inherit;
+$link-hover: lighten($color-foreground, 9%);
 
 // Nav Base Colors
 $nav-link: $color-grey;
@@ -66,10 +60,10 @@ $color-linkedin:#0077B5;
 
 // Alert Colors
 
-$alert-yellow:      #ebe16f;
-$alert-red:         #D0011B;
-$alert-green:       #e6efc2;
-$alert-blue:        #d5edf8;
+$alert-yellow: #ebe16f;
+$alert-red: #D0011B;
+$alert-green: #e6efc2;
+$alert-blue: #d5edf8;
 
 //Borders
 $color-border: $color-foreground; // Setting up the default border colour used in buttons, forms, etc. (as defined /modules/_forms.scss)
@@ -91,28 +85,28 @@ $form-color-btn: $color-btn;
 $form-error-color: $alert-red;
 
 //gravity variables
-$input-bg:           $color-background;
-$input-color:        $color-black;
-$input-border:       $color-grey;
+$input-bg: $color-background;
+$input-color: $color-black;
+$input-border: $color-grey;
 $input-border-focus: $color-grey-dk;
-$input-label:        $color-grey;
-$input-error:        $alert-red;
-$input-shadow:       none;
-$input-transition:   all .3s ease-in-out;
+$input-label: $color-grey;
+$input-error: $alert-red;
+$input-shadow: none;
+$input-transition: all .3s ease-in-out;
 
-$form-button-background:       $color-btn-bg;
+$form-button-background: $color-btn-bg;
 $form-button-background-hover: $color-btn-bg;
-$form-button-color:            $color-btn;
+$form-button-color: $color-btn;
 
 $form-required: $color-orange;
-$form-muted:    $color-grey;
+$form-muted: $color-grey;
 
-$form-font-size:   18px;
+$form-font-size: 18px;
 $form-line-height: $form-font-size * 1.5;
-$form-space:       $form-line-height / 2;
+$form-space: $form-line-height / 2;
 
 $white: $color-white;
-$gray:  $color-grey;
+$gray: $color-grey;
 
 // Pagination
 $pagination-font: $color-foreground;
@@ -135,18 +129,18 @@ $columns: 12;
 
 // media query breakpoints
 $bkpt-smartphone: 320px 480px;
-$bkpt-iphone:320x;
-$bkpt-440:440px;
-$bkpt-480:480px;
-$bkpt-iphone-landscape:480px 480px;
-$bkpt-iphone-retina:'width' 320px, 'device-pixel-ratio' 2;
-$bkpt-iphone-5:'width' 320px, 'device-pixel-ratio' 2;
-$bkpt-ipad:768px 1024px;
-$bkpt-sub-768:767px max-width;
-$bkpt-sub-1024:1024px max-width;
+$bkpt-iphone: 320x;
+$bkpt-440: 440px;
+$bkpt-480: 480px;
+$bkpt-iphone-landscape: 480px 480px;
+$bkpt-iphone-retina: 'width' 320px, 'device-pixel-ratio' 2;
+$bkpt-iphone-5: 'width' 320px, 'device-pixel-ratio' 2;
+$bkpt-ipad: 768px 1024px;
+$bkpt-sub-768: 767px max-width;
+$bkpt-sub-1024: 1024px max-width;
 $bkpt-768: min-width 768px, no-query true;
-$bkpt-ipad-portrait:768px;
-$bkpt-ipad-landscape:1024px 1024px;
+$bkpt-ipad-portrait: 768px;
+$bkpt-ipad-landscape: 1024px 1024px;
 $bkpt-1024: min-width 1025px, no-query true; //just bigger than the ipad
 $bkpt-1280: min-width 1280px;
 $bkpt-1440: min-width 1440px;
@@ -160,35 +154,29 @@ $bkpt-main: $bkpt-1024;
 $bkpt-sub-main: $bkpt-sub-1024;
 
 // height breakpoints
-$bkpt-h-480:480px min-height;
-$bkpt-h-600:600px min-height;
-$bkpt-h-640:640px min-height;
-$bkpt-h-768:768px min-height;
-$bkpt-h-900:900px min-height;
-$bkpt-h-1024:1024px min-height;
-$bkpt-h-1280:1280px min-height;
-$bkpt-h-1600:1600px min-height;
+$bkpt-h-480: 480px min-height;
+$bkpt-h-600: 600px min-height;
+$bkpt-h-640: 640px min-height;
+$bkpt-h-768: 768px min-height;
+$bkpt-h-900: 900px min-height;
+$bkpt-h-1024: 1024px min-height;
+$bkpt-h-1280: 1280px min-height;
+$bkpt-h-1600: 1600px min-height;
 
 // teeny short screen
 $shortscreen: (max-height 625px) (min-width 1025px);
 
 
-
-
 $ease: cubic-bezier(.03,.66,.11,1.01);
 
-$easeOutExpo   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
-$easeInExpo    : cubic-bezier(0.950, 0.050, 0.795, 0.035);
-$easeInOutExpo : cubic-bezier(1.000, 0.000, 0.000, 1.000);
+$easeOutExpo: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$easeInExpo: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$easeInOutExpo: cubic-bezier(1.000, 0.000, 0.000, 1.000);
 
 
 
 /*
 Inital Setup Variables
-
  */
-
 $mobile-padding: 1rem; //the initial padding for the website in mobile
 $internal-padding: $mobile-padding*2;
-
-

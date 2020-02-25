@@ -4,30 +4,30 @@
 
 //clears
 .wp-block-button {
-    color: inherit;
-    margin-bottom: 1em;
-    position: relative;
-    z-index: 1;
-    .wp-block-button__link{
-    	background-color: none;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        color: inherit;
-        cursor: pointer;
-        display: inline-block;
-        font-size: inherit;
-        margin: 0;
-        padding: 0;
-        text-align: left;
-        text-decoration: none;
-        white-space: normal;
-        overflow-wrap: break-word;
-    }
+	color: inherit;
+	margin-bottom: 1em;
+	position: relative;
+	z-index: 1;
+	.wp-block-button__link {
+		background-color: none;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		color: inherit;
+		cursor: pointer;
+		display: inline-block;
+		font-size: inherit;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		text-decoration: none;
+		white-space: normal;
+		overflow-wrap: break-word;
+	}
 }
 
 // restyles
-#content{
+#content {
 	// Variables
 	// Grid size
 	$grid-size-small: 4px;
@@ -49,56 +49,55 @@
 
 	// // Columns
 	// .wp-block-columns {
-	// 	display: flex;
-	// 	margin-bottom: 1em;
+	//	display: flex;
+	//	margin-bottom: 1em;
 
-	// 	// Responsiveness: Allow wrapping on mobile.
-	// 	flex-wrap: wrap;
+	//	// Responsiveness: Allow wrapping on mobile.
+	//	flex-wrap: wrap;
 
-	// 	@include breakpoint($bkpt-main){
-	// 		flex-wrap: nowrap;
-	// 	}
+	//	@include breakpoint($bkpt-main) {
+	//		flex-wrap: nowrap;
+	//	}
 	// }
 
 	// .wp-block-column {
-	// 	margin-bottom: 1em;
-	// 	flex-grow: 1;
+	//	margin-bottom: 1em;
+	//	flex-grow: 1;
 
-	// 	// Responsiveness: Show at most one columns on mobile.
-	// 	flex-basis: 100%;
+	//	// Responsiveness: Show at most one columns on mobile.
+	//	flex-basis: 100%;
 
-	// 	// Prevent the columns from growing wider than their distributed sizes.
-	// 	min-width: 0;
+	//	// Prevent the columns from growing wider than their distributed sizes.
+	//	min-width: 0;
 
-	// 	// Prevent long unbroken words from overflowing.
-	// 	word-break: break-word; // For back-compat.
-	// 	overflow-wrap: break-word; // New standard.
+	//	// Prevent long unbroken words from overflowing.
+	//	word-break: break-word; // For back-compat.
+	//	overflow-wrap: break-word; // New standard.
 
-	// 	@include breakpoint($bkpt-main){
+	//	@include breakpoint($bkpt-main) {
 
-	// 		// Beyond mobile, allow 2 columns.
-	// 		flex-basis: calc(50% - #{$grid-size-large});
-	// 		flex-grow: 0;
+	//		// Beyond mobile, allow 2 columns.
+	//		flex-basis: calc(50% - #{$grid-size-large});
+	//		flex-grow: 0;
 
-	// 		// Add space between the 2 columns. Themes can customize this if they wish to work differently.
-	// 		// Only apply this beyond the mobile breakpoint, as there's only a single column on mobile.
-	// 		&:nth-child(even) {
-	// 			margin-left: $grid-size-large * 2;
-	// 		}
-	// 	}
+	//		// Add space between the 2 columns. Themes can customize this if they wish to work differently.
+	//		// Only apply this beyond the mobile breakpoint, as there's only a single column on mobile.
+	//		&:nth-child(even) {
+	//			margin-left: $grid-size-large * 2;
+	//		}
+	//	}
 
-	// 	@include breakpoint($bkpt-main){
+	//	@include breakpoint($bkpt-main) {
 
-	// 		// When columns are in a single row, add space before all except the first.
-	// 		&:not(:first-child) {
-	// 			margin-left: $grid-size-large * 2;
-	// 		}
-	// 	}
+	//		// When columns are in a single row, add space before all except the first.
+	//		&:not(:first-child) {
+	//			margin-left: $grid-size-large * 2;
+	//		}
+	//	}
 	// }
 	
 	
-
-	.wp-block-image{
+	.wp-block-image {
 		margin-top: 0;
 	}
 
@@ -120,25 +119,26 @@
 		&.are-vertically-aligned-bottom {
 			align-items: end;
 			margin-bottom: 2em;
-			p, ul{
-				&:last-of-type{
+			p, 
+			ul {
+				&:last-of-type {
 					margin-bottom: 0;
 				}
 			}
-			@include breakpoint($bkpt-main){
+			@include breakpoint($bkpt-main) {
 				margin-bottom: 4em;
 			}
 		}
-		&.are-asymm{
-		    grid-template-columns: repeat(3,1fr);
-		    .wp-block-column {
-		    	&:nth-of-type(1){
-		    		grid-column: span 1;
-		    	}
-		    	&:nth-of-type(2){
-		    		grid-column: span 2;
-		    	}
-		    }
+		&.are-asymm {
+			grid-template-columns: repeat(3,1fr);
+			.wp-block-column {
+				&:nth-of-type(1) {
+					grid-column: span 1;
+				}
+				&:nth-of-type(2) {
+					grid-column: span 2;
+				}
+			}
 		}
 	}
 
@@ -232,14 +232,12 @@
 		&.alignleft,
 		&.alignright {
 			max-width: $wrap-width / 2;
-
 			p {
 				font-size: 1em;
 			}
 		}
-
-
-		blockquote{
+		
+		blockquote {
 			position: relative;
 			margin: 1em 0;
 			p {
@@ -260,8 +258,8 @@
 		.has-text-color a {
 			color: inherit;
 		}
-		@include breakpoint($bkpt-main){
-			blockquote{
+		@include breakpoint($bkpt-main) {
+			blockquote {
 				p {
 					font-size: 2.285714286em;
 				}
@@ -297,25 +295,25 @@
 	.wp-block-pullquote cite {
 		color: inherit;
 	}
-	.wp-block-embed{
+	.wp-block-embed {
 		margin: 0;
-		@include breakpoint($bkpt-sub-main){
-			iframe{
+		@include breakpoint($bkpt-sub-main) {
+			iframe {
 				width: 100%;
 				height: auto;
 			}
 		}
 	}
-	.wp-block-cover{
-		filter:grayscale(1);
+	.wp-block-cover {
+		filter: grayscale(1);
 		margin-bottom: 0;
-		@include breakpoint($bkpt-sub-768){
+		@include breakpoint($bkpt-sub-768) {
 			display: none;
 		}
 	}
-	.wp-block-gallery{
-		li{
-			&:before{
+	.wp-block-gallery {
+		li {
+			&:before {
 				display: none;
 			}
 		}

@@ -6,25 +6,25 @@
 	@include position(fixed, 0 0 null 0);
 	z-index: 100;
 	background-color: $color-white;
-	.header--top{
-		.logo{
+	.header--top {
+		.logo {
 			@include image-replacement-svg("logo.svg", 155, 40);
 			margin: 0.25em 0;
 			display: inline-block;
 			position: relative;
-			a{
+			a {
 				@include position(absolute, 0 0 0 0);
 				overflow: hidden;
 			}
 		}
 	}
-	@include breakpoint($bkpt-main){
+	@include breakpoint($bkpt-main) {
 		position: relative;
 		background-color: transparent;
-		.header--top{
+		.header--top {
 			display: flex;
 			align-items: center;
-			.logo{
+			.logo {
 				// @include image-replacement-svg("logo.svg", 115, 40);
 			}
 		}
