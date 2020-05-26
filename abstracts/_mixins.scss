@@ -107,7 +107,29 @@
 		margin: 0;
 	}
 }
+@mixin gallerygrid() {
+  display: block;
+  .blocks-gallery-grid{
+    .blocks-gallery-item{
+      width: auto;
+      margin: 0;
+    }
+    @include breakpoint($bkpt-768){
+      display: grid;
+      grid-template-rows: auto;
+    }
+  }
+  @for $i from 2 through 12 {
+    &.columns-#{$i}{
+      .blocks-gallery-grid{
+        grid-template-columns: repeat($i, 1fr);
+        grid-gap: $internal-padding;
+        grid-row-gap: $internal-padding;
 
+      }
+    }
+  }
+}
 /// Image Replacement
 
 @import "compass/css3/background-size";
