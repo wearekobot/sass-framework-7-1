@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 #header {
 	nav.header--navigation {
-		.header-nav > ul {
+		ul.header-nav {
 			@include de-ul;
 			margin-bottom: 0;
 
@@ -60,14 +60,14 @@
 		/// Mobile Navigation positioning, hiding, etc
 		// Try to avoid styling in here
 		@include breakpoint($bkpt-sub-1024) {
-			.header-nav > ul {
+			ul.header-nav {
 				
 			}
 		}
 		// Non Mobile navigation
 		@include breakpoint($bkpt-main) {
 			flex-grow: 2;
-			.header-nav > ul {
+			ul.header-nav {
 				// undo mobile stuff
 				background-color: transparent;
 				height: auto;
