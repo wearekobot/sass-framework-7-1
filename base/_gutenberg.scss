@@ -58,13 +58,13 @@
 	.wp-block-media-text,
 	.wp-block-group
 	{
-		&.alignnone {
+		.alignnone {
 
 		}
-		&.aligncenter {
+		.aligncenter {
 			display: table;
 		}
-		&.alignleft, &.alignright{
+		.alignleft, .alignright{
 			@include breakpoint($bkpt-main) {
 				height: auto;
 				@include widtho(6);
@@ -74,13 +74,13 @@
 				@include widtho(4);
 			}
 		}
-		&.alignleft {
+		.alignleft {
 			@include breakpoint($bkpt-main){
 				float: left;
 				margin-right: $internal-padding;
 			}
 		}
-		&.alignright {
+		.alignright {
 			@include breakpoint($bkpt-main){
 				float: right;
 				margin-left: $internal-padding;
@@ -372,7 +372,6 @@
 		}
 	}
 	.wp-block-cover {
-		filter: grayscale(1);
 		margin-bottom: 0;
 		@include breakpoint($bkpt-sub-768) {
 			display: none;
